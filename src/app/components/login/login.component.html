@@ -1,0 +1,23 @@
+<div class="flex flex-wrap content-center justify-center h-screen bg-red-600">
+    <mat-card >
+        <mat-card-header class="text-center">
+            <mat-card-title>Sistem Informasi Desa</mat-card-title>
+            <mat-card-subtitle >Login</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="mt-10">
+            <!-- ini masih error -->
+            <div *ngFor="let form of form_field;">
+                <mat-form-field class="w-full">
+                    <mat-label>{{form.form_label}}</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-footer class="px-5">
+            <button mat-flat-button class="w-full mb-2 bg-red-700 text-white">Login</button>
+            <div class="flex flex-wrap justify-center content-center mb-5">
+                <button mat-button class="text-blue-600 w-full" [routerLink]="['/register']">registration</button>
+            </div>
+        </mat-card-footer>
+    </mat-card>
+</div>

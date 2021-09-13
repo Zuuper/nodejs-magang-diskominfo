@@ -9,7 +9,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['active']
+      backgroundColor: ['active'],
+      animation: ['hover', 'focus','active'],
     },
   },
   plugins: [],
