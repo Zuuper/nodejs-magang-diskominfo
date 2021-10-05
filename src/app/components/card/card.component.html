@@ -1,0 +1,26 @@
+<!-- Grid Component layanan
+     Digunakan untuk menampilkan list dari layanan desa
+     berupa grid colomn -->
+<section *ngIf="need_grid" id="card-grid" class="grid grid-cols-1 gap-3
+                                    sm:grid-cols-2
+                                    md:grid-cols-3
+                                    xl:grid-cols-4">
+    <!-- Card Component 
+     digunakan untuk menampilkan data dari layanan desa -->
+    <div *ngFor="let list of list_layanan_data" class="bg-white shadow 
+                rounded-lg">
+        <div class=" h-1/12 rounded-t-lg block" [ngStyle]="{'background-color' : list.warna}">
+                &nbsp;
+        </div>
+        <div class="px-5 py-2">
+                <div class="pb-3">
+                    <p>{{list.kategori}}</p>
+                    <h1>{{list.nama_layanan}}</h1>
+                </div>
+                <div class="flex flex-row">
+                    <button mat-raised-button class="bg-primary">Buat Pengajuan</button>
+                    <button mat-button class="text-secondary px-0">baca selengkapnya</button>
+                </div>
+        </div>        
+    </div>
+</section>
