@@ -1,26 +1,68 @@
 <!-- Grid Component layanan
      Digunakan untuk menampilkan list dari layanan desa
      berupa grid colomn -->
-<section *ngIf="need_grid" id="card-grid" class="grid grid-cols-1 gap-3
-                                    sm:grid-cols-2
-                                    md:grid-cols-3
-                                    xl:grid-cols-4">
-    <!-- Card Component 
-     digunakan untuk menampilkan data dari layanan desa -->
-    <div *ngFor="let list of list_layanan_data" class="bg-white shadow 
-                rounded-lg">
-        <div class=" h-1/12 rounded-t-lg block" [ngStyle]="{'background-color' : list.warna}">
-                &nbsp;
-        </div>
-        <div class="px-5 py-2">
-                <div class="pb-3">
-                    <p>{{list.kategori}}</p>
-                    <h1>{{list.nama_layanan}}</h1>
+<div [ngSwitch]="card_pilihan">
+    <ng-container *ngSwitchCase='"list_layanan"'>
+        <section class="{{grid_class}}">
+            <div *ngFor="let list of list_layanan_data" class="{{card_class}}">
+                <div class=" h-1/12 rounded-t-lg block" [ngStyle]="{'background-color' : list.warna}">
+                    &nbsp;
                 </div>
-                <div class="flex flex-row">
-                    <button mat-raised-button class="bg-primary">Buat Pengajuan</button>
-                    <button mat-button class="text-secondary px-0">baca selengkapnya</button>
+                <div class="px-5 pt-2 pb-4">
+                    <div class="pb-7">
+                        <p>{{list.kategori}}</p>
+                        <h1>{{list.nama_layanan}}</h1>
+                    </div>
+                    <div class="flex flex-row">
+                        <button mat-raised-button class="bg-primary">Buat Pengajuan</button>
+                        <button mat-button class="text-secondary px-0">baca selengkapnya</button>
+                    </div>
                 </div>
-        </div>        
-    </div>
-</section>
+            </div>
+        </section>
+    </ng-container>
+    <ng-container *ngSwitchCase='"draft_layanan"'>
+        <section class="{{no_grid_class}}">
+            <div *ngFor="let draft of draft_layanan_data" class="{{card_class}} flex">
+                <div class=" w-1/12 rounded-l-lg block" [ngStyle]="{'background-color' : draft.warna}">
+                    &nbsp;
+                </div>
+                <div class=" w-full flex flex-initial px-6 py-10  justify-between">
+                    <div>
+                        <p class="max-w-xs">{{draft.kategori}}</p>
+                        <h1 class="max-w-sm">{{draft.nama_layanan}}</h1>
+                    </div>
+                    <div>
+                        <a [routerLink]="['/draft.link']" routerLinkActive="router-link-active">
+                            <button mat-raised-button class="bg-primary px-6 py-4">Lihat detail</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </ng-container>
+    <ng-container *ngSwitchCase='"pengajuan_layanan"'>
+        <section class="{{no_grid_class}}">
+            <mat-expansion-panel *ngFor="let pengajuan of pengajuan_layanan_data">
+                <mat-expansion-panel-header [ngStyle]="{'padding' : '32px 24px'}">
+
+                  <mat-panel-title>
+                    {{pengajuan.nama_layanan}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    {{pengajuan.status}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+
+              </mat-expansion-panel>
+        </section>
+    </ng-container>
+    <ng-container *ngSwitchCase='"rangkuman"'>
+        <p>ini rangkuman</p>
+    </ng-container>
+    <ng-container *ngSwitchCase='"akunku_web_xl"'>
+        <p>ini akunku web xl</p>
+    </ng-container>
+
+
+</div>

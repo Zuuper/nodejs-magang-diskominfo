@@ -66,6 +66,11 @@ module.exports = {
      '3xl': '0 35px 60px -15px rgba(95, 32, 82, 0.3)',
       inner: 'inset 0 2px 4px 0 rgba(95, 32, 82, 0.06)',
       none: 'none',
+    },
+    extend:{
+      widht:{
+        '1/41' : '4.1666666%'
+      }
     }
   },
   variants: {

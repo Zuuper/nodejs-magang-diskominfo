@@ -8,6 +8,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   declarations: [
   ],
@@ -21,7 +23,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     FormsModule, 
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule,
+    MatStepperModule
   ],
   exports: [
     MatButtonModule,
@@ -32,7 +36,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     FormsModule, 
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule,
+    MatStepperModule
   ],
   providers: [
     {provide : MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue : {appearance : 'outline'}}
