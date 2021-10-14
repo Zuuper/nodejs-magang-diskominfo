@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -15,16 +15,7 @@ export class TextFieldComponent implements OnInit {
   */
   hide_password = true;
   email = new FormControl('', [Validators.required, Validators.email]);
-  title = "Kisah kasih di Rumah"
-  null_value = [{'id': 1, 'name': ''},{'id': 2, 'name': ''}]
-  form_field = [
-    {'id': 1, 'field_name': 'NIK', 'type': 'varchar', 'value': this.null_value},
-    {'id': 1, 'field_name': 'email', 'type': 'email', 'value': this.null_value},
-    {'id': 1, 'field_name': 'Alamat', 'type': 'textarea', 'value': this.null_value},
-    {'id': 1, 'field_name': 'jenis kelamin', 'type': 'dropdown', 'value': [{'id': 1, 'name': 'laki - laki'},{'id': 2, 'name': 'perempuan'}]},
-    {'id': 1, 'field_name': 'password', 'type': 'password', 'value': this.null_value},
-    {'id': 1, 'field_name': 'dokumen', 'type': 'upload_file', 'value': this.null_value}
-  ]
+  @Input() form_field: any 
   constructor() { }
 
   ngOnInit(): void {

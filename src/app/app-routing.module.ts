@@ -1,3 +1,4 @@
+import { MasukComponent } from './pages/masuk/masuk.component';
 import { DetailUserComponent } from './pages/akun/detail-user/detail-user.component';
 import { AktivasiUserComponent } from './pages/akun/aktivasi-user/aktivasi-user.component';
 import { AkunUserComponent } from './pages/akun/akun-user/akun-user.component';
@@ -10,13 +11,16 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { MainComponent } from './pages/main/main.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', redirectTo : '/login', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: '', redirectTo : 'auth/masuk', pathMatch: 'full'},
+  {path: 'menu', redirectTo : 'menu/home', pathMatch: 'full'},
+  {path : 'auth', component: MasukComponent, children : [
+    {path : 'masuk', component : LoginComponent},
+    {path : 'registrasi', component: RegisterComponent}
+  ] },
   {path: 'menu', component: MainComponent, children : [
     {path: 'home', component: LandingPageComponent},
     {path: 'layanan', component: ListLayananComponent, children: [

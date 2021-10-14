@@ -1,48 +1,49 @@
 <form>
-    <!-- Section "Title-section" digunakan untuk menampilkan 
-         judul dari page untuk form
-         yang akan digunakan 
-    -->
-    <section id="title-section">
-        <h1 class="text-accent-light">{{title}}</h1>
-    </section>
     <!-- Section "Form Field Section" digunakan untuk menampilkan 
          form yang diperlukan dalam 
          input data layanan
     -->
     <section id="form-field-section" class="form-container">
         <div *ngFor="let form of form_field;">
-            <mat-form-field *ngIf="form.type == 'varchar'" class="form-field">
+            <mat-form-field *ngIf="form.type == 'varchar'" class="form-field w-full pb-5">
                 <mat-label>{{form.field_name}}</mat-label>
                 <input matInput>
             </mat-form-field>
-            <mat-form-field *ngIf="form.type == 'textarea'" class="form-field">
+            <mat-form-field *ngIf="form.type == 'textarea'" class="form-field w-full pb-5">
                 <mat-label>{{form.field_name}}</mat-label>
                 <textarea matInput></textarea>
             </mat-form-field>
-            <mat-form-field *ngIf="form.type == 'dropdown'" class="form-field">
+            <mat-form-field *ngIf="form.type == 'dropdown'" class="form-field w-full pb-5">
                 <mat-label>{{form.field_name}}</mat-label>
-                <mat-select >
+                <mat-select>
                     <mat-option value="">Pilih satu</mat-option>
-                    <mat-option *ngFor="let value_field of form.value" [value]=value_field.id>{{value_field.name}}</mat-option>
+                    <mat-option *ngFor="let value_field of form.value" [value]=value_field.id>{{value_field.name}}
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
-            <mat-form-field *ngIf="form.type == 'password'" class="form-field">
-                <mat-label>{{form.field_name}}</mat-label>
-                <input matInput [type]="hide_password ? 'password' : 'text'">
-                <button mat-icon-button matSuffix (click)="hide_password = !hide_password" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide_password">
-                <mat-icon>{{hide_password ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </mat-form-field>
-            <mat-form-field *ngIf="form.type == 'email'" class="form-field">
+            <div *ngIf="form.type == 'password'" class="pb-5">
+                <mat-form-field  class="form-field w-full">
+                    <mat-label>{{form.field_name}}</mat-label>
+                    <input matInput [type]="hide_password ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide_password = !hide_password"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide_password">
+                        <mat-icon>{{hide_password ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <ng-content select="[id=password-field-link]" class="pt-0"></ng-content>
+            </div>
+            <mat-form-field *ngIf="form.type == 'email'" class="form-field w-full pb-5">
                 <mat-label>{{form.field_name}}</mat-label>
                 <input matInput placeholder="pat@example.com" [formControl]="email" required>
                 <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
-            <section *ngIf="form.type == 'upload_file'" class="form-field">
+            <section *ngIf="form.type == 'upload_file'" class="form-field w-full pb-5">
                 <label>upload {{form.field_name}}</label>
                 <input type="file" class="file-upload" onchange="console.log(event.target.files)">
             </section>
+            <mat-form-field *ngIf="form.type == 'checkbox'" class="form-field pb-5">
+                <mat-checkbox>{{form.field_name}}</mat-checkbox>
+            </mat-form-field>
         </div>
     </section>
 </form>

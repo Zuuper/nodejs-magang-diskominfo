@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<header>
+    <nav class="flex flex-wrap justify-between w-full bg-primary py-2 px-2 md:px-16  text-white">
+        <div class="flex items-center">
+            <img src="../../../assets/svg-images/badung_logo.svg" class="w-10 h-10 hidden md:block">
+            <h4 class="pl-4">Silades</h4>
+        </div>
+        <nav class="hidden md:block items-center">
+            <ul class="flex flex-wrap items-center">
+                <li [ngClass]="navbar_list_class"><a href="#">Layanan</a></li>
+                <li [ngClass]="navbar_list_class"><a href="#">Cara Pengajuan</a></li>
+                <li [ngClass]="navbar_list_class"><a href="#">Akunku</a></li>
+                <li [ngClass]="navbar_list_class"><a href="#">Keluar</a></li>
+                <li [ngClass]="navbar_list_class">
+                    <div class="flex flex-wrap items-center">
+                        <img src="../../../assets/icon/ic_round_light_mode.svg" class="w-8 h-8 pr-1">
+                        <mat-slide-toggle>
+                            <img src="../../../assets/icon/ic_baseline_dark_mode.svg" class="w-6 h-6 pl-1">
+                        </mat-slide-toggle>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </nav>
+</header>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-landing-page-section',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page-section.component.css']
 })
 export class LandingPageSectionComponent implements OnInit {
-
+  @Input() section_ !:string
   constructor() { }
 
   ngOnInit(): void {

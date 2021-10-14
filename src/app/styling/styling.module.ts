@@ -10,6 +10,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @NgModule({
   declarations: [
   ],
@@ -25,7 +28,10 @@ import {MatStepperModule} from '@angular/material/stepper';
     ReactiveFormsModule,
     MatSelectModule,
     MatExpansionModule,
-    MatStepperModule
+    MatStepperModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatButtonModule,
@@ -38,7 +44,10 @@ import {MatStepperModule} from '@angular/material/stepper';
     ReactiveFormsModule,
     MatSelectModule,
     MatExpansionModule,
-    MatStepperModule
+    MatStepperModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatSlideToggleModule
   ],
   providers: [
     {provide : MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue : {appearance : 'outline'}}

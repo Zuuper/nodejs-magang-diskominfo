@@ -23,9 +23,9 @@ import { CaraPengajuanComponent } from './pages/bantuan/cara-pengajuan/cara-peng
 import { AkunUserComponent } from './pages/akun/akun-user/akun-user.component';
 import { DetailUserComponent } from './pages/akun/detail-user/detail-user.component';
 import { AktivasiUserComponent } from './pages/akun/aktivasi-user/aktivasi-user.component';
-import { RegistrasiComponent } from './pages/masuk/registrasi/registrasi.component';
 import { ListLayananComponent } from './pages/layanan/list-layanan/list-layanan.component';
 import { ProgressPengajuanStepperComponent } from './components/progress-pengajuan-stepper/progress-pengajuan-stepper.component';
+import { MasukComponent } from './pages/masuk/masuk.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,9 +46,9 @@ import { ProgressPengajuanStepperComponent } from './components/progress-pengaju
     AkunUserComponent,
     DetailUserComponent,
     AktivasiUserComponent,
-    RegistrasiComponent,
     ListLayananComponent,
-    ProgressPengajuanStepperComponent
+    ProgressPengajuanStepperComponent,
+    MasukComponent
   ],
   imports: [
     BrowserModule,

@@ -1,23 +1,19 @@
-<div class="flex flex-wrap content-center justify-center h-screen bg-red-600">
-    <mat-card >
-        <mat-card-header class="text-center">
-            <mat-card-title>Sistem Informasi Desa</mat-card-title>
-            <mat-card-subtitle >Login</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content class="mt-10">
-            <!-- ini masih error -->
-            <div *ngFor="let form of form_field;">
-                <mat-form-field class="w-full">
-                    <mat-label>{{form.form_label}}</mat-label>
-                    <input matInput>
-                </mat-form-field>
-            </div>
-        </mat-card-content>
-        <mat-card-footer class="px-5">
-            <button mat-flat-button class="w-full mb-2 bg-red-700 text-white">Login</button>
-            <div class="flex flex-wrap justify-center content-center mb-5">
-                <button mat-button class="text-blue-600 w-full" [routerLink]="['/register']">registration</button>
-            </div>
-        </mat-card-footer>
-    </mat-card>
-</div>
+<section>
+    <h1>{{login}}.</h1>
+    <p class="max-w-sm">{{penjelasan_login}}</p>
+    <div class="mt-16 max-w-sm">
+        <app-text-field [form_field]="form_field">
+            <span id="password-field-link">
+                <a class="caption">{{ganti_password}}</a>
+            </span>
+        </app-text-field>
+        <mat-checkbox [(ngModel)]="checked" class="mt-10 mb-5 caption" [ngStyle]="{'font-family' : 'poppins, sans-serif'}">
+            {{simpan_login}}
+        </mat-checkbox>
+        <button mat-flat-button class="bg-primary text-white w-full text-lg" [ngStyle]="{'padding-top' : '0.3rem', 'padding-bottom' : '0.3rem'}">{{login}}</button>
+        <div class="flex">
+            <p class="caption">{{buat_akun}}</p>
+            <a class="caption text-accent"> {{registrasi}}</a>
+        </div>
+    </div>
+</section>

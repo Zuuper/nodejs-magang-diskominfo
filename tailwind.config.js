@@ -1,3 +1,5 @@
+const { url } = require("inspector")
+
 module.exports = {
   purge: {
     enabled: true,
@@ -67,11 +69,20 @@ module.exports = {
       inner: 'inset 0 2px 4px 0 rgba(95, 32, 82, 0.06)',
       none: 'none',
     },
-    extend:{
-      widht:{
-        '1/41' : '4.1666666%'
+    extend: {
+      width: {
+        '1/7': '14.2857143%',
+        '2/7': '28.5714286%',
+        '3/7': '42.8571429%',
+        '4/7': '57.1428571%',
+        '5/7': '71.4285714%',
+        '6/7': '85.7142857%',
+        'card-side': '4.1666666%'
+      },
+      backgroundImage:{
+        'main-pattern' : "url('src/assets/svg-images/login_background_xl.svg')"
       }
-    }
+     }
   },
   variants: {
     extend: {

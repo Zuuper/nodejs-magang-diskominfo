@@ -4,7 +4,7 @@
 <div [ngSwitch]="card_pilihan">
     <ng-container *ngSwitchCase='"list_layanan"'>
         <section class="{{grid_class}}">
-            <div *ngFor="let list of list_layanan_data" class="{{card_class}}">
+            <div *ngFor="let list of list_layanan_data" class="{{card_class}} bg-white">
                 <div class=" h-1/12 rounded-t-lg block" [ngStyle]="{'background-color' : list.warna}">
                     &nbsp;
                 </div>
@@ -23,8 +23,8 @@
     </ng-container>
     <ng-container *ngSwitchCase='"draft_layanan"'>
         <section class="{{no_grid_class}}">
-            <div *ngFor="let draft of draft_layanan_data" class="{{card_class}} flex">
-                <div class=" w-1/12 rounded-l-lg block" [ngStyle]="{'background-color' : draft.warna}">
+            <div *ngFor="let draft of draft_layanan_data" class="{{card_class}} flex bg-white">
+                <div class=" w-card-side rounded-l-lg block" [ngStyle]="{'background-color' : draft.warna}">
                     &nbsp;
                 </div>
                 <div class=" w-full flex flex-initial px-6 py-10  justify-between">
@@ -42,27 +42,70 @@
         </section>
     </ng-container>
     <ng-container *ngSwitchCase='"pengajuan_layanan"'>
+        <!-- ini masih defaultnya angular material mat-expansion panel
+             nanti dikembangin lagi biar sama dengan draft_layanan -->
         <section class="{{no_grid_class}}">
-            <mat-expansion-panel *ngFor="let pengajuan of pengajuan_layanan_data">
-                <mat-expansion-panel-header [ngStyle]="{'padding' : '32px 24px'}">
-
-                  <mat-panel-title>
-                    {{pengajuan.nama_layanan}}
-                  </mat-panel-title>
-                  <mat-panel-description>
-                    {{pengajuan.status}}
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-
-              </mat-expansion-panel>
+            <mat-expansion-panel *ngFor="let pengajuan of pengajuan_layanan_data" [ngStyle]="{'background': 'linear-gradient(90deg, pengajuan.warna 4.1666666%, #fbfbfb 2%)'}">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{pengajuan.nama_layanan}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      {{pengajuan.status}}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <p>ini isinya nanti dibuat</p>
+                </mat-expansion-panel>
         </section>
     </ng-container>
     <ng-container *ngSwitchCase='"rangkuman"'>
-        <p>ini rangkuman</p>
+        <section class={{grid_class_3_cols}}>
+            <div class=" bg-primary {{card_class}} flex  px-8 py-4">
+                <img src="../../../assets/icon/ic_baseline_verified_user.svg" class=" w-4 h-4 md:w-8 md:h-8 lg:w-16 lg:h-16">
+                <div class="pl-2 my-auto">
+                    <h1>Status Akun</h1>
+                    <p>belum verifikasi</p>
+                </div>
+            </div>
+            <div class=" bg-secondary {{card_class}} flex flex-wrap px-8 py-4">
+                <img src="../../../assets/icon/ic_round-drafts.svg" class="w-16 h-16">
+                <div class="pl-2 my-auto">
+                    <h1>Draft Pengajuann</h1>
+                    <p>tidak ada draft</p>
+                </div>
+            </div>
+            <div class="bg-accent {{card_class}} flex px-8 py-4">
+                <img src="../../../assets/icon/ic_round_insert_drive_file.svg" class="w-16 h-16">
+                <div class="pl-2 my-auto">
+                    <h1>Pengajuan Selesai</h1>
+                    <p>tidak ada pengajuan selesai</p>
+                </div>
+            </div>
+        </section>
     </ng-container>
     <ng-container *ngSwitchCase='"akunku_web_xl"'>
-        <p>ini akunku web xl</p>
+        <section class="{{no_grid_class}}">
+            <div class="bg-white {{card_class}} flex justify-center py-4 my-4">
+                <img src="../../../assets/svg-images/User_Status_Isometric.svg" >
+                <div class="my-auto">
+                    <h1>Data Diri</h1>
+                    <p class=" max-w-md">Menampilkan Data diri anda sesuai dengan apa yang telah and masukan sebelumnya</p>
+                </div>
+            </div>
+            <div class="bg-white {{card_class}} flex justify-center py-4 my-4">
+                <img src="../../../assets/svg-images/Team_building _Isometric.svg" >
+                <div class="my-auto">
+                    <h1>Draft pengajuan </h1>
+                    <p class=" max-w-md">Data pengajuan yang belum selesai di ajukan (Draft) akan tersimpan disini, anda bisa melanjutkan draft tersebut</p>
+                </div>
+            </div>
+            <div class="bg-white {{card_class}} flex justify-center py-4 my-4">
+                <img src="../../../assets/svg-images/Completed_task _Isometric.svg" class="my-auto">
+                <div class="my-auto">
+                    <h1>Pengajuan Terproses</h1>
+                    <p class=" max-w-md">hasil pengajuan serta prosesnya akan tersimpan disini, anda dapat membuka, serta menyimpan hasil pelayanan desa</p>
+                </div>
+            </div>
+        </section>
     </ng-container>
-
-
-</div>
+</div>W
