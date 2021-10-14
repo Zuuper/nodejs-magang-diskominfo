@@ -4,10 +4,12 @@
     <div class="mt-16 max-w-sm">
         <app-text-field [form_field]="form_field" class="mb-5">
         </app-text-field>
-        <button mat-flat-button class="bg-primary text-white w-full text-lg mt-5" [ngStyle]="{'padding-top' : '0.3rem', 'padding-bottom' : '0.3rem'}">{{register}}</button>
-        <div class="flex">
-            <p class="caption">{{buat_akun}}</p>
-            <a class="caption text-accent"> {{registrasi}}</a>
+        <div class="mt-10">
+            <button mat-flat-button class="bg-primary text-white w-full text-lg mt-5" [routerLink]="['/menu']">{{register}}</button>
+            <div class="flex">
+                <p class="caption">{{buat_akun}}</p>
+                <a class="caption text-accent" [routerLink]="['/auth/masuk']"> {{registrasi}}</a>
+            </div>
         </div>
     </div>
 </section>

@@ -1,22 +1,22 @@
-<section id="hero" class="mb-20 bg-gradient-to-tr from-primary to-secondary md:bg-none px-6 md:px-16">  
-    <div class="hidden md:block">
+<section id="hero" [ngClass]="hero_component_class">  
+    <div [ngClass]="left_side_hero_child_component_class">
         <app-landing-page-section [section_]='"hero"'></app-landing-page-section>
     </div>
-    <div class="md:hidden pt-8">
+    <div [ngClass]="right_side_hero_child_component_class">
         <app-landing-page-section [section_]='"hero"'></app-landing-page-section>
     </div>
 </section>
 
-<section id="pengantar" class="px-6 md:px-16">
+<section id="pengantar" [ngClass]="container_component">
     <app-landing-page-section [section_]='"pengantar"'></app-landing-page-section>
 </section>
 
-<section id="fitur-utama" class="px-6 md:px-16">
+<section id="fitur-utama" [ngClass]="container_component">
     <div>
 
     </div>
 </section>
 
-<section id="penutup" class="px-6 md:px-16">
+<section id="penutup" [ngClass]="container_component">
 
 </section>

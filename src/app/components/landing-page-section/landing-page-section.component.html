@@ -1,41 +1,40 @@
 <section [ngSwitch]="section_">
-    <section *ngSwitchCase='"hero"' class="flex" id="her">
-        <div class="pt-6 pb-5 md:pt-32 md:z-10 md:absolute">
+    <section *ngSwitchCase='"hero"' class="md:flex" id="hero">
+        <div [ngClass]="hero_left_side_main_component_class">
             <div class="mb-20">
-                <p class="uppercase text-white md:text-primary ">Era baru</p>
-                <h1 class="uppercase max-w-lg hidden md:block ">Dalam pengurusan layanan desa</h1>
-                <h3 class="uppercase max-w-lg md:hidden text-white">Dalam pengurusan layanan desa</h3>
+                <p [ngClass]="hero_left_side_red_small_text">Era baru</p>
+                <h1 [ngClass]="hero_left_side_title_text">Dalam pengurusan layanan desa</h1>
             </div> 
             <div class="hidden md:block">
                 <button mat-flat-button class="bg-primary text-white">
-                    <span class="mx-4 ">Pelajari lebih lanjut</span>
+                    <span class="mx-4 ">{{cta_2}}t</span>
                 </button>
             </div>
             <div class="md:hidden flex justify-center">
-                <button mat-button class="text-white">Pelajari lebih lanjut</button>
+                <button mat-button class="text-white">{{cta_2}}</button>
 
             </div>
         </div>
-        <div class="md:z-0 hidden md:flex md:relative ml-auto w-8/12 justify-end">
-            <img src="../../../assets/svg-images/Sending emails_Isometric.svg" class="w-11/12">
+        <div [ngClass]="hero_right_side_image">
+            <img src="../../../assets/svg-images/Sending emails_Isometric.svg" [ngClass]="hero_image_side ">
         </div>
     </section>
     <section *ngSwitchCase='"pengantar"' class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="hidden md:block">
             <h1>
-               <span class="text-primary">Mempermudah</span> <br>
-               <span>Dalam Pengurusan</span> <br>
-               <span>Layanan</span> 
+               <span class="text-primary" [ngClass]="common_title_text">Mempermudah</span> <br>
+               <span [ngClass]="common_title_text">Dalam Pengurusan</span> <br>
+               <span [ngClass]="common_title_text">Layanan</span> 
             </h1>
         </div>
         <div>
-            <p>Silades Memberikan Kemudahan bagi para penggunanya dalam melakukan pengajuan layanan, tidak perlu ke kantor dan mengantri hanya untuk mengajukan sebuah layanan</p>
+            <p>{{silades_description}}</p>
             <div class="flex">
                 <button mat-flat-button class="bg-primary text-white md:w-auto w-full">
-                    <span class="mx-2 caption">Buat Pengajuan</span>
+                    <span class="mx-2 caption">{{cta_1}}</span>
                 </button>
                 <button mat-button class="text-secondary hidden md:block caption">
-                    Pelajari lebih lanjut
+                    {{cta_2}}
                 </button>
             </div>
         </div>

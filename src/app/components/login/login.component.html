@@ -10,10 +10,10 @@
         <mat-checkbox [(ngModel)]="checked" class="mt-10 mb-5 caption" [ngStyle]="{'font-family' : 'poppins, sans-serif'}">
             {{simpan_login}}
         </mat-checkbox>
-        <button mat-flat-button class="bg-primary text-white w-full text-lg" [ngStyle]="{'padding-top' : '0.3rem', 'padding-bottom' : '0.3rem'}">{{login}}</button>
+        <button mat-flat-button class="bg-primary text-white w-full text-lg" [routerLink]="['/menu']">{{login}}</button>
         <div class="flex">
             <p class="caption">{{buat_akun}}</p>
-            <a class="caption text-accent"> {{registrasi}}</a>
+            <a class="caption text-accent" [routerLink]="['/auth/registrasi']"> {{registrasi}}</a>
         </div>
     </div>
 </section>
