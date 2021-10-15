@@ -1,7 +1,7 @@
 <header>
-    <nav class="flex flex-wrap justify-between w-full bg-primary py-2 px-2 md:px-16  text-white">
+    <nav [ngClass]="[nav_component_class, container_component]">
         <div class="flex items-center">
-            <img src="../../../assets/svg-images/badung_logo.svg" class="w-10 h-10 hidden md:block">
+            <img src="../../../assets/svg-images/badung_logo.svg" [ngClass]="nav_logo_class">
             <h4 class="pl-4">Silades</h4>
         </div>
         <nav class="hidden md:block items-center">

@@ -16,7 +16,8 @@ h2,h3{
 }
 p{
     font-weight: 400;
-    letter-spacing: normal;
+    letter-spacing: normal; 
+    line-height: 2;
 }
 h1{
     font-size: 3rem;
