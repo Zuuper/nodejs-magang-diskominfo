@@ -58,4 +58,30 @@
             </div>
         </div>
     </section>
+
+    <section *ngSwitchCase="'fitur'" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div>
+            <ng-content select="[content-left]"></ng-content>
+        </div>
+        <div>
+            <ng-content select="[content-right]"></ng-content>
+        </div>        
+    </section>
+
+    <section *ngSwitchCase="'akhiran_text_ditengah'" class="">
+        <ng-content select="[text]" [class]="mb-4"></ng-content>
+        <ng-content select="[cta]"></ng-content>
+    </section>
+
+    <section *ngSwitchCase="'search_not_found'" class="">
+        
+    </section>
+
+    <section *ngSwitchCase="'error_404'">
+        <p>Error 404</p>
+    </section>
+
+    <section *ngSwitchCase="'error_maintenance'">
+        <p>Error maintenance</p>
+    </section>
 </section>
