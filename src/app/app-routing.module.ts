@@ -17,6 +17,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {path: '', redirectTo : 'auth/masuk', pathMatch: 'full'},
   {path: 'menu', redirectTo : 'menu/home', pathMatch: 'full'},
+  {path: 'menu/layanan', redirectTo:'menu/layanan/data-layanan', pathMatch: 'full'},
   {path : 'auth', component: MasukComponent, children : [
     {path : 'masuk', component : LoginComponent},
     {path : 'registrasi', component: RegisterComponent}

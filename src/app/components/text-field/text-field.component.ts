@@ -16,8 +16,15 @@ export class TextFieldComponent implements OnInit {
   hide_password = true;
   email = new FormControl('', [Validators.required, Validators.email]);
   @Input() form_field: any 
+  @Input() grid = false
   constructor() { }
 
+  // Start Css Classes
+  no_class = ""
+  input_form_grid_class = 'grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-x-4 md:gap-y-0'
+  form_grid_field = 'form-field w-full pb-5'
+  form_no_grid_field = 'form-field w-full pb-5'
+  // End Css Classes
   ngOnInit(): void {
   }
 

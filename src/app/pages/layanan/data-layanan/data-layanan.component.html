@@ -1,1 +1,18 @@
-<p>data-layanan works!</p>
+<app-landing-page-section [section_]='"layanan_hero"'></app-landing-page-section>
+<div [ngClass]="common_section_margin_class">
+    <div class="text-center mb-8 flex justify-center">
+        <h1 [ngClass]="common_title_text">Daftar Pengurusan Layanan Desa Di Badung</h1>
+    </div>
+    <div>
+        <app-text-field [form_field]="form_field" [grid]=true>
+            <ng-container slot="cta_button">
+                <div class="h-1/2 flex align-middle mt-3">
+                    <button class="text-secondary">Reset Pencarian</button>
+                </div>
+            </ng-container>
+        </app-text-field>
+    </div>
+</div>
+<div [ngClass]="common_section_margin_class">
+    
+</div>

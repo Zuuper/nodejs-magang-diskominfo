@@ -90,4 +90,21 @@
     <section *ngSwitchCase="'error_maintenance'">
         <p>Error maintenance</p>
     </section>
+
+    <section *ngSwitchCase="'layanan_hero'" class="md:flex">
+        <div [ngClass]="hero_left_side_main_component_class">
+            <div class="mb-20">
+                <p [ngClass]="hero_left_side_red_small_text">Pengajuan</p>
+                <h1 [ngClass]="hero_left_side_title_text">
+                    Pengurusan Layanan Desa
+                </h1>
+                <p class="text-black max-w-sm hidden md:inline-block mt-10">Daftar pengurusan layanan desa online yang didukung oleh Sistem Layanan Desa kabupaten Badung</p>
+            </div>
+            
+
+        </div>
+        <div [ngClass]="hero_right_side_image">
+            <img src="../../../assets/svg-images/Search Engine_Isometric_layanan.svg" [ngClass]="hero_image_side" />
+        </div>
+    </section>
 </section>

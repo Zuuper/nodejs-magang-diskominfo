@@ -3,17 +3,17 @@
          form yang diperlukan dalam 
          input data layanan
     -->
-    <section id="form-field-section" class="form-container">
+    <section id="form-field-section" [ngClass]="grid ? input_form_grid_class : no_class">
         <div *ngFor="let form of form_field;">
-            <mat-form-field *ngIf="form.type == 'varchar'" class="form-field w-full pb-5">
+            <mat-form-field *ngIf="form.type == 'varchar'" [ngClass]="grid ? form_grid_field : form_no_grid_field" >
                 <mat-label>{{form.field_name}}</mat-label>
                 <input matInput>
             </mat-form-field>
-            <mat-form-field *ngIf="form.type == 'textarea'" class="form-field w-full pb-5">
+            <mat-form-field *ngIf="form.type == 'textarea'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-label>{{form.field_name}}</mat-label>
                 <textarea matInput></textarea>
             </mat-form-field>
-            <mat-form-field *ngIf="form.type == 'dropdown'" class="form-field w-full pb-5">
+            <mat-form-field *ngIf="form.type == 'dropdown'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-label>{{form.field_name}}</mat-label>
                 <mat-select>
                     <mat-option value="">Pilih satu</mat-option>
@@ -37,13 +37,14 @@
                 <input matInput placeholder="pat@example.com" [formControl]="email" required>
                 <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
-            <section *ngIf="form.type == 'upload_file'" class="form-field w-full pb-5">
+            <section *ngIf="form.type == 'upload_file'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <label>upload {{form.field_name}}</label>
                 <input type="file" class="file-upload" onchange="console.log(event.target.files)">
             </section>
-            <mat-form-field *ngIf="form.type == 'checkbox'" class="form-field pb-5">
+            <mat-form-field *ngIf="form.type == 'checkbox'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-checkbox>{{form.field_name}}</mat-checkbox>
             </mat-form-field>
         </div>
+        <ng-content select="[slot=cta_button]"></ng-content>
     </section>
 </form>
