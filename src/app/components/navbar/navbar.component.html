@@ -4,8 +4,9 @@
             <img src="../../../assets/svg-images/badung_logo.svg" [ngClass]="nav_logo_class">
             <h4 class="pl-4">Silades</h4>
         </div>
-        <nav class="hidden md:block items-center">
+        <div class="hidden md:block items-center">
             <ul class="flex flex-wrap items-center">
+                <ng-content select="[slot=navbar_menu]"></ng-content>
                 <li [ngClass]="navbar_list_class"><a href="#">Layanan</a></li>
                 <li [ngClass]="navbar_list_class"><a href="#">Cara Pengajuan</a></li>
                 <li [ngClass]="navbar_list_class"><a href="#">Akunku</a></li>
@@ -19,6 +20,11 @@
                     </div>
                 </li>
             </ul>
-        </nav>
+        </div>
+        <div class="flex md:hidden">
+            <button mat-button class="text-white">
+                <img src="../../../assets/icon/ic_round-menu.svg" class="w-6 h-6 mx-auto">
+            </button>
+        </div>
     </nav>
 </header>

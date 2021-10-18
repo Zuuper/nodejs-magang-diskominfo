@@ -10,7 +10,7 @@ export class LandingPageSectionComponent implements OnInit {
   @Input() section_ !:string
 
 
-  // Css Class
+  // Start CSS Classes
   hero_left_side_main_component_class = "pt-8 pb-5 grid-cols-1 \
                                          md:mt-10 md:z-10 md:absolute  md:grid-cols-none\
                                          lg:mt-20"
@@ -29,10 +29,17 @@ export class LandingPageSectionComponent implements OnInit {
 
   pengantar_main_component_class = "grid grid-cols-1 md:grid-cols-2 gap-4"
   pengantar_left_side_class = "grid grid-cols-1 gap-1"
-  // Text component
+  penutup_main_class = "mb-4 px-6 md:px-12 lg:px-20 xl:px-24 2xl:px-32"
+  // End CSS Classes
+
+
+  // Start Text component
   silades_description = "Silades Memberikan Kemudahan bagi para penggunanya dalam melakukan pengajuan layanan, tidak perlu ke kantor dan mengantri hanya untuk mengajukan sebuah layanan"
   cta_1 = "Buat Pengajuan"
   cta_2 = "Pelajari lebih lanjut"
+  // End Text Component
+
+  
   constructor() { }
 
   ngOnInit(): void {

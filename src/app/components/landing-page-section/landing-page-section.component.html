@@ -59,18 +59,24 @@
         </div>
     </section>
 
-    <section *ngSwitchCase="'fitur'" class="grid grid-cols-1 md:grid-cols-2 gap-3">
-        <div>
-            <ng-content select="[content-left]"></ng-content>
+    <section *ngSwitchCase="'fitur'" class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-10 lg:gap-x-12 xl:gap-x-16">
+        <div class="my-auto">
+            <ng-content select="[slot=content_left]"></ng-content>
         </div>
-        <div>
-            <ng-content select="[content-right]"></ng-content>
+        <div class="my-auto">
+            <ng-content select="[slot=content_right]" ></ng-content>
+        </div>
+        <div class="order-2 md:order-1">
+            <ng-content select="[slot=content_left_type_2]"></ng-content>
+        </div>
+        <div class="order-1 md:order-2">
+            <ng-content select="[slot=content_right_type_2]" ></ng-content>
         </div>        
     </section>
 
-    <section *ngSwitchCase="'akhiran_text_ditengah'" class="">
-        <ng-content select="[text]" [class]="mb-4"></ng-content>
-        <ng-content select="[cta]"></ng-content>
+    <section *ngSwitchCase="'akhiran_text_ditengah'" class="bg-gradient-to-l from-primary to-secondary">
+        <ng-content select="[slot=text]" [ngClass]="penutup_main_class"></ng-content>
+        <ng-content select="[slot=cta]"></ng-content>
     </section>
 
     <section *ngSwitchCase="'search_not_found'" class="">

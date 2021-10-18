@@ -1,4 +1,4 @@
-<section id="hero" [ngClass]="[hero_component_class, container_component]">  
+<section id="hero" [ngClass]="[hero_component_class, container_component]">
     <div [ngClass]="left_side_hero_child_component_class">
         <app-landing-page-section [section_]='"hero"'></app-landing-page-section>
     </div>
@@ -7,16 +7,99 @@
     </div>
 </section>
 
-<section id="pengantar" [ngClass]="container_component">
+<section id="pengantar" [ngClass]="[container_component, common_section_margin_class]">
     <app-landing-page-section [section_]='"pengantar"'></app-landing-page-section>
 </section>
 
-<section id="fitur-utama" [ngClass]="container_component">
-    <div>
+<div [ngClass]="[container_component, common_section_margin_class]">
+    <h1 class="text-center">Fitur Utama</h1>
+</div>
 
+<section id="fitur-utama" [ngClass]="[container_component, common_section_margin_class]">
+    <div>
+        <app-landing-page-section [section_]='"fitur"'>
+            <ng-container slot="content_left">
+                <img src="../../../assets/svg-images/CEO_Isometric.svg" [ngClass]="fitur_img_class" class="mr-auto">
+            </ng-container>
+            <ng-container slot="content_right">
+                <div class="h-full my-auto">
+                    <div>
+                        <div>
+                            <h1 [ngClass]="common_title_text" class="text-center md:text-left">{{fitur_1_title}}</h1>
+                            <p [ngClass]="fitur_text_class">{{fitur_1_text}}</p>
+                        </div>
+                        <div [ngClass]="cta_fitur_child_component_class">
+                            <a class="text-secondary caption">{{cta_2}}</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </app-landing-page-section>
+    </div>
+    <div class="mt-12">
+        <app-landing-page-section [section_]='"fitur"'>
+            <ng-container slot="content_right_type_2">
+                <img src="../../../assets/svg-images/Search engine _Isometric.svg" [ngClass]="fitur_img_class"
+                    class="ml-auto">
+            </ng-container>
+            <ng-container slot="content_left_type_2">
+                <div class="h-full my-auto">
+                    <div>
+                        <div>
+                            <h1 [ngClass]="common_title_text" class="text-center md:text-left">{{fitur_2_title}}</h1>
+                            <p [ngClass]="fitur_text_class">{{fitur_2_text}}</p>
+                        </div>
+                        <div [ngClass]="cta_fitur_child_component_class" class="flex flex-wrap">
+                            <div class="hidden md:block">
+                                <button mat-flat-button class="bg-primary text-white">
+                                    <span class="mx-4">{{cta_1}}</span>
+                                </button>
+                            </div>
+                            <button mat-button class="text-secondary caption">{{cta_2}}</button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </app-landing-page-section>
+    </div>
+    <div class="mt-12">
+        <app-landing-page-section [section_]='"fitur"'>
+            <ng-container slot="content_left">
+                <img src="../../../assets/svg-images/Information carousel_Isometric.svg" [ngClass]="fitur_img_class" class="mr-auto">
+            </ng-container>
+            <ng-container slot="content_right">
+                <div class="h-full my-auto">
+                    <div>
+                        <div>
+                            <h1 [ngClass]="common_title_text" class="text-center md:text-left">{{fitur_3_title}}</h1>
+                            <p [ngClass]="fitur_text_class">{{fitur_3_text}}</p>
+                        </div>
+                        <div [ngClass]="cta_fitur_child_component_class">
+                            <a class="text-secondary caption">{{cta_2}}</a>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-container>
+        </app-landing-page-section>
     </div>
 </section>
 
-<section id="penutup" [ngClass]="container_component">
+<section id="penutup" [ngClass]="common_section_margin_class">
+    <app-landing-page-section [section_]='"akhiran_text_ditengah"'>
+            <ng-container slot="text">  
+                <div [ngClass]="penutup_text_class">
+                <p [ngClass]="common_heading_text">{{penutup_text}}</p>
 
+                </div>
+            </ng-container>
+            <ng-container slot="cta">
+                <div class="flex justify-center pb-8 md:pb-12 lg:pb-16 xl:pb-20 2xl:pb-24">
+                    <button mat-flat-button class="bg-white text-primary">
+                        <span class="mx-4">{{cta_1}}</span>
+                    </button>
+                </div>
+            </ng-container>
+    </app-landing-page-section>
+    
 </section>
