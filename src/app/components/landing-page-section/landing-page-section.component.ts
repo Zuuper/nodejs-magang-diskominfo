@@ -26,7 +26,10 @@ export class LandingPageSectionComponent implements OnInit {
                        md:text-3xl\
                        lg:text-4xl\
                        xl:text-5xl"
-
+  common_subheading_text = "text-xl max-w-xl\
+                            md:text-2xl\
+                            lg:text-3xl\
+                            xl:text-4xl"
   pengantar_main_component_class = "grid grid-cols-1 md:grid-cols-2 gap-4"
   pengantar_left_side_class = "grid grid-cols-1 gap-1"
   penutup_main_class = "mb-4 px-6 md:px-12 lg:px-20 xl:px-24 2xl:px-32"

@@ -13,6 +13,14 @@
         </app-text-field>
     </div>
 </div>
-<div [ngClass]="common_section_margin_class">
-    
+<div [ngClass]="common_section_margin_class" *ngIf="data_found; then data_layanan else no_data">
+
 </div>
+
+<ng-template #no_data>
+    <app-landing-page-section [section_]="'search_not_found'"></app-landing-page-section> 
+</ng-template>
+
+<ng-template #data_layanan>
+    
+</ng-template>

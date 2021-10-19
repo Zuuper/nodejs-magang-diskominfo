@@ -80,7 +80,8 @@
     </section>
 
     <section *ngSwitchCase="'search_not_found'" class="">
-        
+        <img src="../../../assets/svg-images/Group 94.png" class="mx-auto">
+        <p [ngClass]="[common_subheading_text]" class="text-center mx-auto max-w-2xl">Tidak ada data ditemukan coba cari dengan kata kunci lain</p>
     </section>
 
     <section *ngSwitchCase="'error_404'">
