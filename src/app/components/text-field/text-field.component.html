@@ -37,9 +37,11 @@
                 <input matInput placeholder="pat@example.com" [formControl]="email" required>
                 <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
-            <section *ngIf="form.type == 'upload_file'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
-                <label>upload {{form.field_name}}</label>
-                <input type="file" class="file-upload" onchange="console.log(event.target.files)">
+            <section *ngIf="form.type == 'upload_file'" [ngClass]="grid ? form_grid_field : form_no_grid_field" class="mt-5">
+                <label class=" bg-primary text-white p-4 rounded-lg"><span>upload {{form.field_name}}</span>
+                    <br class="mt-2">
+                    <input type="file" class="hidden" onchange="console.log(event.target.files)">
+                </label>
             </section>
             <mat-form-field *ngIf="form.type == 'checkbox'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-checkbox>{{form.field_name}}</mat-checkbox>

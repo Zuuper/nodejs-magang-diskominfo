@@ -1,4 +1,6 @@
-<app-landing-page-section [section_]='"layanan_hero"'></app-landing-page-section>
+<div class="hidden md:block">
+    <app-landing-page-section [section_]='"layanan_hero"'></app-landing-page-section>
+</div>
 <div [ngClass]="common_section_margin_class">
     <div class="text-center mb-8 flex justify-center">
         <h1 [ngClass]="common_title_text">Daftar Pengurusan Layanan Desa Di Badung</h1>
@@ -13,7 +15,7 @@
         </app-text-field>
     </div>
 </div>
-<div [ngClass]="common_section_margin_class" *ngIf="data_found; then data_layanan else no_data">
+<div [ngClass]="common_section_margin_class" *ngIf="data_found; then data_layanan_view else no_data">
 
 </div>
 
@@ -21,6 +23,6 @@
     <app-landing-page-section [section_]="'search_not_found'"></app-landing-page-section> 
 </ng-template>
 
-<ng-template #data_layanan>
-    
+<ng-template #data_layanan_view>
+    <app-card [card_pilihan]="'list_layanan'" [data_]="data_layanan"></app-card>
 </ng-template>

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataLayananComponent implements OnInit {
   // Start variables
-  data_found = false
+  data_found = true
   form_field = [
     {id:"1",field_name : 'Cari Pengajuan Layanan Desa', type : 'varchar'},
     {id:"2",field_name : 'Kategori Layanan', type : 'dropdown', value : [{id:1, name: "bantuan"}, 
@@ -17,14 +17,23 @@ export class DataLayananComponent implements OnInit {
                                                               {id:2, name: "Kerobokan Kaja"},
                                                               {id:3, name: "Peti Tenget"}]},
   ]
+  data_layanan = [
+    {id : 1, nama_layanan : "subsidi BBM pemerintah", kategori : "bantuan", warna : '#000'},
+    {id : 2, nama_layanan : "Surat Pernyataan Masih Hidup", kategori : "surat pernyataan", warna : '#000'},
+    {id : 3, nama_layanan : "Surat Pernyataan Menduda", kategori : "surat pernyataan", warna : '#000'},
+    {id : 4, nama_layanan : "Surat Keterangan Kaya raya", kategori : "surat keterangan", warna : '#000'},
+    {id : 5, nama_layanan : "subsidi BBM pemerintah", kategori : "bantuan", warna : '#000'},
+    {id : 6, nama_layanan : "Surat Keterangan Kartu Keluarga", kategori : "surat keterangan", warna : '#000'},
+    {id : 7, nama_layanan : "Surat Pengantar Kawin", kategori : "surat pengantar", warna : '#000'},
+  ]
   // End Variables
 
 
   // Start Css Classes
   common_section_margin_class = "mt-8 mb-8 \
-                                  md:mt-20 md:mb-12\
-                                  lg:mt-28 lg:mb-14 \
-                                  xl:mt-36 xl:mb-18"
+                                  md:mt-12\
+                                  lg:mt-16 \
+                                  xl:mt-18"
   common_subheading_text = "text-xl max-w-xl\
                                   md:text-2xl\
                                   lg:text-3xl\

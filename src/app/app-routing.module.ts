@@ -1,3 +1,4 @@
+import { MainUserComponent } from './pages/akun/main-user/main-user.component';
 import { MasukComponent } from './pages/masuk/masuk.component';
 import { DetailUserComponent } from './pages/akun/detail-user/detail-user.component';
 import { AktivasiUserComponent } from './pages/akun/aktivasi-user/aktivasi-user.component';
@@ -30,7 +31,8 @@ const routes: Routes = [
       {path: 'buat-layanan', component: BuatLayananComponent}
     ]},
     {path: 'bantuan', component: CaraPengajuanComponent},
-    {path: 'akun', component: AkunUserComponent, children: [
+    {path: 'akun', component: MainUserComponent, children: [
+      {path: '', component: AkunUserComponent},
       {path: 'aktivasi-user', component: AktivasiUserComponent},
       {path: 'akun-user', component: AkunUserComponent},
       {path: 'detail-user', component: DetailUserComponent}

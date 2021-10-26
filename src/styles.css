@@ -17,7 +17,7 @@ h2,h3{
 p{
     font-weight: 400;
     letter-spacing: normal; 
-    line-height: 2;
+    line-height: 1.5;
 }
 h1{
     font-size: 3rem;
@@ -51,4 +51,7 @@ h4, p{
 .mat-icon-button, .mat-stroked-button, 
 .mat-flat-button, .mat-fab, .mat-mini-fab .mat-button-wrapper{
     padding: 0.50rem 1rem !important;
+}
+.mat-list-item-content {
+    font-family: 'poppins',sans-serif;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -17,21 +17,9 @@ export class CardComponent implements OnInit {
                       5. akunku_web_xl  => khusus untuk website dengan screem diatas 720p merupakan 
                                            card untuk link menuju draft, pengajuan, dan akun user
   */
-  card_pilihan: string = "akunku_web_xl"
-  data_dummy = [
-    {id: 1, 'kategori':'Surat pengantar', 'nama_layanan': 'Surat Pengantar rumah sakit', 'link_pengajuan':'ini link', 'link_penjelasan':'ini link penjelasan','warna': '#000'},
-    {id: 2, 'kategori':'Surat keterangan', 'nama_layanan': 'Surat keterangan sehat', 'link_pengajuan':'ini link', 'link_penjelasan':'ini link penjelasan','warna': '#000'},
-    {id: 3, 'kategori':'Surat pernyataan', 'nama_layanan': 'Surat pernyataan orang baik', 'link_pengajuan':'ini link', 'link_penjelasan':'ini link penjelasan','warna': '#000'},
-    {id: 4, 'kategori':'bantuan', 'nama_layanan': 'bantuan raskin miskin', 'link_pengajuan':'ini link', 'link_penjelasan':'ini link penjelasan','warna': '#000'}
-  ]
-  data_dummy_pengajuan = [
-    {id: 1, 'nama_layanan' : 'surat pengantar rumah sakit', 'status': 'tahap penyetujuan', 'warna': '#000'},
-    {id: 2, 'nama_layanan' : 'surat pengantar rumah sakit', 'status': 'tahap penyetujuan', 'warna': '#000'},
-    {id: 3, 'nama_layanan' : 'surat pengantar rumah sakit', 'status': 'tahap penyetujuan', 'warna': '#000'},
-  ]
-  list_layanan_data = this.data_dummy
-  draft_layanan_data = this.data_dummy
-  pengajuan_layanan_data = this.data_dummy_pengajuan
+  @Input() card_pilihan = "list_layanan"
+  @Input() data_ : any
+
 
   /* 
     CSS Class Value
@@ -43,7 +31,25 @@ export class CardComponent implements OnInit {
   grid_class_3_cols = "grid grid-cols-3 gap-x-10"
   no_grid_class = "grid grid-cols-1 gap-4 lg:gap-x-30 lg:gap-y-5"
   card_class = "shadow-lg rounded-lg"
-  constructor() { }
+  common_title_text ="text-lg max-w-xl capitalize\
+                      md:text-xl\
+                      lg:text-2xl lg:max-w-2xl\
+                      xl:text-3xl\
+                      2xl:text-4xl"
+  common_sub_heading_text = "text-sm max-w-xl capitalize\
+                              md:text-md\
+                              lg:text-lg lg:max-w-2xl\
+                              xl:text-xl\
+                              2xl:text-2xl"
+  common_cta_text = "text-xs max-w-lg capitalize\
+                      2xl:text-sm"
+  rangkuman_card_text = "pl-2 my-auto text-white"
+  akunku_web_xl_card_class = "bg-white shadow-lg rounded-lg grid grid-cols-8 gap-4 py-4 my-4"
+  akunku_web_Xl_image_class = "ml-0 w-10/12 col-start-2 col-span-3"
+  akunku_web_xl_text_class = "my-auto col-span-4"
+  akunku_web_xl_list_class = "bg-white shadow-lg rounded-lg my-4"
+  constructor() {
+  }
 
   ngOnInit(): void {
     

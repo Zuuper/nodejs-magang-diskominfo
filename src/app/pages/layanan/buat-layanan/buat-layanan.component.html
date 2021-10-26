@@ -1,1 +1,14 @@
-<p>buat-layanan works!</p>
+<section id="hero" class="mt-8 mb-8">
+    <h1 [ngClass]="common_title_text">Form Pengajuan {{nama_layanan}}</h1>
+</section>
+<section id="form-field-layanan">
+    <app-text-field [form_field]="form_field"></app-text-field>
+</section>
+<section id="cta-layanan" class="grid grid-cols-1 md:flex md:justify-end" [ngClass]="common_section_margin_class">
+    <button class="text-secondary order-2 md:order-1">
+        <p>Batal melakukan Pengajuan</p>
+    </button>
+    <button class="text-white bg-primary rounded-lg  px-4 py-2 md:ml-4 order-1 md:order-2 mb-4 md:mb-0">
+        <p>Simpan Pengajuan</p>
+    </button>
+</section>

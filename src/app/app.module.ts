@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +25,7 @@ import { AktivasiUserComponent } from './pages/akun/aktivasi-user/aktivasi-user.
 import { ListLayananComponent } from './pages/layanan/list-layanan/list-layanan.component';
 import { ProgressPengajuanStepperComponent } from './components/progress-pengajuan-stepper/progress-pengajuan-stepper.component';
 import { MasukComponent } from './pages/masuk/masuk.component';
+import { MainUserComponent } from './pages/akun/main-user/main-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +48,8 @@ import { MasukComponent } from './pages/masuk/masuk.component';
     AktivasiUserComponent,
     ListLayananComponent,
     ProgressPengajuanStepperComponent,
-    MasukComponent
+    MasukComponent,
+    MainUserComponent
   ],
   imports: [
     BrowserModule,
