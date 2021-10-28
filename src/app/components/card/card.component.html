@@ -30,15 +30,18 @@
                 <div class=" w-card-side rounded-l-lg block" [ngStyle]="{'background-color' : draft.warna}">
                     &nbsp;
                 </div>
-                <div class=" w-full flex flex-initial px-6 py-10  justify-between">
+                <div class=" w-full flex flex-initial px-2 py-4 md:px-6 md:py-10  justify-between">
                     <div>
                         <p class="max-w-xs">{{draft.kategori}}</p>
-                        <h1 class="max-w-sm">{{draft.nama_layanan}}</h1>
+                        <h1 class="max-w-sm" [ngClass]="common_title_text">{{draft.nama_layanan}}</h1>
                     </div>
-                    <div>
-                        <a [routerLink]="['/draft.link']" routerLinkActive="router-link-active">
-                            <button mat-raised-button class="bg-primary px-6 py-4">Lihat detail</button>
-                        </a>
+                    <div class="md:flex md:justify-between hidden">
+                        <button  class="border-2 border-accent text-accent px-8 mr-4 rounded-lg">
+                            Lihat dan edit
+                        </button>
+                        <button  class="border-2 border-primary text-primary px-8 rounded-lg">
+                            Hapus draft
+                        </button>
                     </div>
                 </div>
             </div>
@@ -88,7 +91,7 @@
     </ng-container>
     <ng-container *ngSwitchCase='"akunku_web_xl"'>
         <section class="{{no_grid_class}} hidden md:block">
-            <a href="#">
+            <a [routerLink]="['detail-user']">
                 <div [ngClass]="akunku_web_xl_card_class">
                     <img src="../../../assets/svg-images/User_Status_Isometric.svg" [ngClass]="akunku_web_Xl_image_class">
                     <div [ngClass]="akunku_web_xl_text_class">
@@ -97,7 +100,7 @@
                     </div>
                 </div>
             </a>
-            <a>
+            <a [routerLink]="['/menu/layanan/draft-layanan']">
                 <div [ngClass]="akunku_web_xl_card_class">
                     <img src="../../../assets/svg-images/Team_building _Isometric.svg" [ngClass]="akunku_web_Xl_image_class">
                     <div [ngClass]="akunku_web_xl_text_class">
@@ -106,7 +109,7 @@
                     </div>
                 </div>
             </a>
-            <a>
+            <a [routerLink]="['/menu/layanan/pengajuan-layanan']">
                 <div [ngClass]="akunku_web_xl_card_class">
                     <img src="../../../assets/svg-images/Completed_task _Isometric.svg" [ngClass]="akunku_web_Xl_image_class">
                     <div [ngClass]="akunku_web_xl_text_class">

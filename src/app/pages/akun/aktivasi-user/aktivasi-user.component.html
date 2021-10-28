@@ -1,1 +1,20 @@
-<p>aktivasi-user works!</p>
+<section class="flex justify-between" [ngClass]="common_section_margin_class">
+    <h1 class="text-5xl">
+        Aktivasi User
+    </h1>
+    <button class=" text-primary hidden md:block">
+        Kembali
+    </button>
+</section>
+<section [ngClass]="[common_section_margin_class]" class="grid grid-cols-1">
+    <div class="mt-12">
+        <app-text-field [form_field]="form_detail_akun" [grid]="false"></app-text-field>
+    </div>
+    <div class="flex md:justify-end mt-12">
+        <button class="text-secondary px-6 py-4 md:mr-8 caption">kembali</button>
+        <button class="text-white bg-primary px-6 py-4 rounded-lg caption">aktivasi akun</button>
+    </div>
+</section>
+<section>
+    
+</section>

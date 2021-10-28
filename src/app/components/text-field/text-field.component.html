@@ -35,7 +35,7 @@
             <mat-form-field *ngIf="form.type == 'email'" class="form-field w-full pb-5">
                 <mat-label>{{form.field_name}}</mat-label>
                 <input matInput placeholder="pat@example.com" [formControl]="email" required>
-                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="email.invalid" class="pt-4">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
             <section *ngIf="form.type == 'upload_file'" [ngClass]="grid ? form_grid_field : form_no_grid_field" class="mt-5">
                 <label class=" bg-primary text-white p-4 rounded-lg"><span>upload {{form.field_name}}</span>

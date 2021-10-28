@@ -1,3 +1,4 @@
+import { PengajuanTerprosesComponent } from './pages/pengajuan-terproses/pengajuan-terproses.component';
 import { MainUserComponent } from './pages/akun/main-user/main-user.component';
 import { MasukComponent } from './pages/masuk/masuk.component';
 import { DetailUserComponent } from './pages/akun/detail-user/detail-user.component';
@@ -22,19 +23,19 @@ const routes: Routes = [
   {path : 'auth', component: MasukComponent, children : [
     {path : 'masuk', component : LoginComponent},
     {path : 'registrasi', component: RegisterComponent}
-  ] },
+  ]},
   {path: 'menu', component: MainComponent, children : [
     {path: 'home', component: LandingPageComponent},
     {path: 'layanan', component: ListLayananComponent, children: [
       {path: 'draft-layanan', component: DraftLayananComponent},
       {path: 'data-layanan', component: DataLayananComponent},
-      {path: 'buat-layanan', component: BuatLayananComponent}
+      {path: 'buat-layanan', component: BuatLayananComponent},
+      {path: 'pengajuan-layanan', component: PengajuanTerprosesComponent}
     ]},
     {path: 'bantuan', component: CaraPengajuanComponent},
     {path: 'akun', component: MainUserComponent, children: [
       {path: '', component: AkunUserComponent},
       {path: 'aktivasi-user', component: AktivasiUserComponent},
-      {path: 'akun-user', component: AkunUserComponent},
       {path: 'detail-user', component: DetailUserComponent}
     ]}
   ]}

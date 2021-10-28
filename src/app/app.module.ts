@@ -26,6 +26,7 @@ import { ListLayananComponent } from './pages/layanan/list-layanan/list-layanan.
 import { ProgressPengajuanStepperComponent } from './components/progress-pengajuan-stepper/progress-pengajuan-stepper.component';
 import { MasukComponent } from './pages/masuk/masuk.component';
 import { MainUserComponent } from './pages/akun/main-user/main-user.component';
+import { PengajuanTerprosesComponent } from './pages/pengajuan-terproses/pengajuan-terproses.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { MainUserComponent } from './pages/akun/main-user/main-user.component';
     ListLayananComponent,
     ProgressPengajuanStepperComponent,
     MasukComponent,
-    MainUserComponent
+    MainUserComponent,
+    PengajuanTerprosesComponent
   ],
   imports: [
     BrowserModule,

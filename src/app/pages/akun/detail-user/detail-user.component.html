@@ -1,0 +1,41 @@
+<section class="flex justify-between" [ngClass]="common_section_margin_class">
+    <h1 class="text-5xl">
+        Draft Pengajuan
+    </h1>
+    <button class=" text-primary hidden md:block">
+        Kembali
+    </button>
+</section>
+<section [ngClass]="common_section_margin_class" class="grid grid-cols-1 md:grid-cols-6 md:gap-4 grid-flow-row auto-rows-min">
+    <div class="hidden md:block md:col-span-2 container" [ngClass]="card_class">
+        <h3>Akun saya</h3>
+        <div class="mt-12">
+            <app-text-field [form_field]="form_akun" [grid]="false"></app-text-field>
+        </div>
+        <div class="mt-12 grid grid-cols-1">
+            <button class="bg-primary rounded-lg py-2 text-white mb-4 caption">
+                Verifikasi Akun
+            </button>
+            <button class="border-2 border-primary rounded-lg py-2 text-primary caption">
+                Ganti password
+            </button>
+        </div>
+    </div>
+    <div class="md:col-span-4" [ngClass]="card_class">
+        <div class="flex justify-between">
+            <h3>
+                Detail akun
+            </h3>
+            <button class=" text-primary hidden md:block caption">
+                Edit detail data
+            </button>
+        </div>
+        <div class="mt-12">
+            <app-text-field [form_field]="form_detail_akun" [grid]="false"></app-text-field>
+        </div>
+        <div class="flex md:justify-end mt-12">
+            <button class="text-secondary px-6 py-4 md:mr-8 caption">batal edit data</button>
+            <button class="text-white bg-primary px-6 py-4 rounded-lg caption">Simpan data</button>
+        </div>
+    </div>
+</section>
