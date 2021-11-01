@@ -44,7 +44,7 @@
         </div>
         <div>
             <p>{{ silades_description }}</p>
-            <div class="flex mt-4 justify-start">
+            <div class="grid grid-cols-1 md:flex mt-4 md:justify-start">
                 <div class="">
                     <button mat-flat-button class="bg-primary text-white w-full md:w-auto ">
                         <span class="mx-2 caption">{{ cta_1 }}</span>
@@ -108,7 +108,7 @@
     </section>
 
     <section *ngSwitchCase="'akun_hero'" [ngClass]="akun_hero_main_class">
-        <div [ngClass]="hero_left_side_main_component_class" class="my-auto">
+        <div class="my-auto">
             <div class="text-white mb-16 md:mb-12 ">
                 <h1 [ngClass]="common_title_text" class="mb-4">Hi, Aditya Ersa</h1>
                 <p class="max-w-md md:max-w-sm caption">ayo segera aktivasi akunmu agar bisa melakukan pengajuan layanan</p>
@@ -123,7 +123,7 @@
             </div>
         </div>
         <div [ngClass]="hero_right_side_image">
-            <img src="../../../assets/svg-images/User interface_isometric 1.svg" [ngClass]="akun_hero_image_side">
+            <img src="../../../assets/svg-images/akunku_image_2.svg" class=" py-12">
         </div>
     </section>
 </section>

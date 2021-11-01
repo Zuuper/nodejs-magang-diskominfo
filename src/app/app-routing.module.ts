@@ -28,7 +28,6 @@ const routes: Routes = [
     {path: 'home', component: LandingPageComponent},
     {path: 'layanan', component: ListLayananComponent, children: [
       {path: 'draft-layanan', component: DraftLayananComponent, children: [
-        {path: 'id'}
       ]},
       {path: 'data-layanan', component: DataLayananComponent},
       {path: 'buat-layanan', component: BuatLayananComponent},

@@ -34,7 +34,7 @@ export class LandingPageSectionComponent implements OnInit {
   pengantar_left_side_class = "grid grid-cols-1 gap-1"
   penutup_main_class = "mb-4 px-6 md:px-12 lg:px-20 xl:px-24 2xl:px-32"
   akun_hero_main_class = "px-8 bg-gradient-to-br from-accent to-primary rounded-none -mx-6\
-                          md:mt-16 md:bg-none md:bg-accent md:rounded-lg md:mx-0\
+                          md:mt-16 md:bg-none md:bg-accent md:rounded-lg md:mx-0 md:grid md:grid-cols-2\
                           lg:px-20 \
                           xl:px-24 \
                           2xl:px-28"

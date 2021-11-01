@@ -7,10 +7,10 @@
         <div class="hidden md:block items-center">
             <ul class="flex flex-wrap items-center">
                 <ng-content select="[slot=navbar_menu]"></ng-content>
-                <li [ngClass]="navbar_list_class"><a href="#">Layanan</a></li>
-                <li [ngClass]="navbar_list_class"><a href="#">Cara Pengajuan</a></li>
-                <li [ngClass]="navbar_list_class"><a href="#">Akunku</a></li>
-                <li [ngClass]="navbar_list_class"><a href="#">Keluar</a></li>
+                <li [ngClass]="navbar_list_class"><a [routerLink]="['/menu/layanan']">Layanan</a></li>
+                <li [ngClass]="navbar_list_class"><a>Cara Pengajuan</a></li>
+                <li [ngClass]="navbar_list_class"><a [routerLink]="['/menu/akun']">Akunku</a></li>
+                <li [ngClass]="navbar_list_class" ><a>Keluar</a></li>
                 <li [ngClass]="navbar_list_class">
                     <div class="flex flex-wrap items-center">
                         <img src="../../../assets/icon/ic_round_light_mode.svg" class="w-8 h-8 pr-1">
@@ -21,10 +21,27 @@
                 </li>
             </ul>
         </div>
-        <div class="flex md:hidden">
-            <button mat-button class="text-white">
+        <div class="place-self-end md:hidden">
+            <button mat-button class="text-white" (click)="show_navbar_menu()">
                 <img src="../../../assets/icon/ic_round-menu.svg" class="w-6 h-6 mx-auto">
             </button>
         </div>
+        <section *ngIf="show_xs_nav" class="md:hidden col-span-2">
+            <hr class="text-white -mx-4">
+            <ul class="grid grid-cols-1">
+                <ng-content select="[slot=navbar_menu]"></ng-content>
+                <li [ngClass]="navbar_list_class" [routerLink]="['/menu/layanan']"><a>Layanan</a></li>
+                <li [ngClass]="navbar_list_class"><a>Cara Pengajuan</a></li>
+                <li [ngClass]="navbar_list_class" [routerLink]="['/menu/akun']"><a >Akunku</a></li>
+                <li [ngClass]="navbar_list_class">
+                    <div class="flex flex-wrap items-center">
+                        <p class="mr-4">Mode gelap</p>
+                        <mat-slide-toggle>
+                        </mat-slide-toggle>
+                    </div>
+                </li>
+                <li [ngClass]="navbar_list_class" class="mt-8"><a href="#">Keluar</a></li>
+            </ul>
+        </section>
     </nav>
 </header>
