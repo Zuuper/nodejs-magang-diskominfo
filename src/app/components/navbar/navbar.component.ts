@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Capacitor } from '@capacitor/core';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,6 +9,7 @@ export class NavbarComponent implements OnInit {
 
   // variables
   show_xs_nav = false
+  device !: boolean
 
   // css class
   nav_component_class = "grid grid-cols-2 md:flex md:flex-wrap md:justify-between w-full bg-primary py-2 px-2 text-white"
@@ -19,10 +20,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.show_xs_nav = false
+    this.device = Capacitor.isNativePlatform()
   }
 
   show_navbar_menu(){
     this.show_xs_nav = this.show_xs_nav == false ? true : false
-    console.log(this.show_xs_nav)
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
+  // Start variables
+    device = false
+    user_status = false
+    search_not_login_form = [
+      {id: "1", field_name : 'Cari Desa', type : 'varchar'}
+    ] 
+  // End Variables
   // Start CSS Classes
   container_component = "px-6 md:px-12 lg:px-20 xl:px-24 2xl:px-32"
   common_title_text = "text-xl max-w-xl\
@@ -50,6 +58,10 @@ export class LandingPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.device = Capacitor.isNativePlatform()
   }
-
+  setUserStatus(){
+    let user = localStorage.getItem('user_loggin')
+    this.user_status = (user == 'false') ? false : true
+  }
 }
