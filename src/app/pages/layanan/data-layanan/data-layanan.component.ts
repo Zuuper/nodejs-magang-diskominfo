@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 
 @Component({
   selector: 'app-data-layanan',
@@ -26,6 +27,7 @@ export class DataLayananComponent implements OnInit {
     {id : 6, nama_layanan : "Surat Keterangan Kartu Keluarga", kategori : "surat keterangan", warna : '#000'},
     {id : 7, nama_layanan : "Surat Pengantar Kawin", kategori : "surat pengantar", warna : '#000'},
   ]
+  device = false
   // End Variables
 
 
@@ -42,10 +44,14 @@ export class DataLayananComponent implements OnInit {
                                   md:text-3xl\
                                   lg:text-4xl\
                                   xl:text-5xl"
+  data_layanan_heading_2 = "text-center\
+                            mb-8 flex justify-center"
+  hidden_component = "hidden"
   // End Css Classes
   constructor() { }
 
   ngOnInit(): void {
+    this.device = Capacitor.isNativePlatform()
   }
 
 }

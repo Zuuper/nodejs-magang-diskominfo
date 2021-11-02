@@ -2,7 +2,7 @@
     <app-landing-page-section [section_]='"layanan_hero"'></app-landing-page-section>
 </div>
 <div [ngClass]="common_section_margin_class">
-    <div class="text-center mb-8 flex justify-center">
+    <div [ngClass]="device ? hidden_component : data_layanan_heading_2">
         <h1 [ngClass]="common_title_text">Daftar Pengurusan Layanan Desa Di Badung</h1>
     </div>
     <div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 
 @Component({
   selector: 'app-draft-layanan',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class DraftLayananComponent implements OnInit {
 
   // Start Variables
+  device = false
   data_found = true
   form_field = [
     {id:"1",field_name : 'Cari Pengajuan Layanan Desa', type : 'varchar'},
@@ -37,11 +39,14 @@ export class DraftLayananComponent implements OnInit {
                       xl:text-xl\
                       2xl:text-2xl"
   common_cta_text = "text-xs max-w-lg capitalize\
-              2xl:text-sm"          
+              2xl:text-sm" 
+  header_flex_class = "flex justify-between"
+  hidden_component = "hidden"        
   // End CSS Classes
   constructor() { }
 
   ngOnInit(): void {
+    this.device = Capacitor.isNativePlatform()
   }
 
 }

@@ -14,6 +14,16 @@ export class LandingPageComponent implements OnInit {
     search_not_login_form = [
       {id: "1", field_name : 'Cari Desa', type : 'varchar'}
     ] 
+    data_layanan = [
+      {id : 1, nama_layanan : "subsidi BBM pemerintah", kategori : "bantuan", warna : '#000'},
+      {id : 2, nama_layanan : "Surat Pernyataan Masih Hidup", kategori : "surat pernyataan", warna : '#000'},
+      {id : 3, nama_layanan : "Surat Pernyataan Menduda", kategori : "surat pernyataan", warna : '#000'},
+      {id : 4, nama_layanan : "Surat Keterangan Kaya raya", kategori : "surat keterangan", warna : '#000'},
+    ]
+    draft_layanan = [
+      {id : 1, nama_layanan : "subsidi BBM pemerintah", kategori : "bantuan", warna : '#000'},
+      {id : 2, nama_layanan : "Surat Pernyataan Masih Hidup", kategori : "surat pernyataan", warna : '#000'},
+    ]
   // End Variables
   // Start CSS Classes
   container_component = "px-6 md:px-12 lg:px-20 xl:px-24 2xl:px-32"

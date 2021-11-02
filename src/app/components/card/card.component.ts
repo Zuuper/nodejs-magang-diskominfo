@@ -19,7 +19,7 @@ export class CardComponent implements OnInit {
   */
   @Input() card_pilihan = "list_layanan"
   @Input() data_ : any
-
+  @Input() mobile = false
 
   /* 
     CSS Class Value
@@ -27,8 +27,9 @@ export class CardComponent implements OnInit {
     -no_grid_class = digunakan untk menampilkan card tanpa grid
     -card_class = digunakan untuk konfigurasi tampilan card
   */
-  grid_class = "grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
+  grid_class = "grid gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
   grid_class_3_cols = "grid grid-cols-3 gap-x-10"
+  grid_class_1_cols = "grid grid-cols-1 gap-x-10"
   no_grid_class = "grid grid-cols-1 gap-4 lg:gap-x-30 lg:gap-y-5"
   card_class = "shadow-lg rounded-lg"
   common_title_text ="text-lg max-w-xl capitalize\

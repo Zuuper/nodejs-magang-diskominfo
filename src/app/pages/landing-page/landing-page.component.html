@@ -108,20 +108,45 @@
 
 <ng-template #mobile>
     <ng-template [ngIf]="user_status" [ngIfElse]="not_login">
+        <div class="flex justify-end mt-4 mb-8">
+            <a>
+                <img src="" alt="">
+            </a> 
+        </div>
+        <div>
+            <app-card [card_pilihan]="'rangkuman'" [mobile]="true"></app-card>
+        </div>
+        <div>
+            <app-card [card_pilihan]="'list_layanan'" [data_]="data_layanan"></app-card>
+            <div class="flex justify-center">
+                <a class="caption text-secondary"> lihat Lebih Banyak</a>
+            </div>
+        </div>
+        <div>
 
+        </div>
     </ng-template>
     <ng-template #not_login>
         <div class="flex justify-end mt-4 mb-8">
             <p class="caption">Masuk</p>
         </div>
         <h1 [ngClass]="common_title_text">Daftar Pelayanan Desa Kabupaten Badung</h1>
-        <div>
-            <app-text-field [form_field]="search_not_login_form">
-
-            </app-text-field>
-        </div>
-        <div class="flex justify-center">
-            <a class="caption text-secondary"> lihat Lebih Banyak</a>
+        <div class="mt-8">
+            <app-text-field [form_field]="search_not_login_form"></app-text-field>
+            <div class="mt-4">
+                <h2 [ngClass]="common_title_text">Layanan Desa</h2>
+                <app-card [card_pilihan]="'list_layanan'" [data_]="data_layanan"></app-card>
+                <div class="flex justify-center">
+                    <a class="caption text-secondary"> lihat Lebih Banyak</a>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h2 [ngClass]="common_title_text">Pengajuan Terproses</h2>
+                <app-card [card_pilihan]="'draft_layanan'" [data_]="draft_layanan"></app-card>
+                <div class="flex justify-center">
+                    <a class="caption text-secondary"> lihat Lebih Banyak</a>
+                </div>
+            </div>
         </div>
     </ng-template>
 </ng-template>

@@ -65,8 +65,8 @@
         </section>
     </ng-container>
     <ng-container *ngSwitchCase='"rangkuman"'>
-        <section class={{grid_class_3_cols}}>
-            <div class=" bg-primary {{card_class}} flex  px-8 py-4">
+        <section [ngClass]="mobile ? grid_class_1_cols : grid_class_3_cols">
+            <div class=" bg-primary {{card_class}} flex  px-8 py-4" [ngClass]="{'hidden' : mobile}">
                 <img src="../../../assets/icon/ic_baseline_verified_user.svg" class=" w-4 h-4 md:w-8 md:h-8 lg:w-16 lg:h-16">
                 <div [ngClass]="rangkuman_card_text">
                     <h1 [ngClass]="common_sub_heading_text">Status Akun</h1>
@@ -89,7 +89,7 @@
             </div>
         </section>
     </ng-container>
-    <ng-container *ngSwitchCase='"akunku_web_xl"'>
+    <ng-container *ngSwitchCase='"akunku"'>
         <section class="{{no_grid_class}} hidden md:block">
             <a [routerLink]="['detail-user']">
                 <div [ngClass]="akunku_web_xl_card_class">
