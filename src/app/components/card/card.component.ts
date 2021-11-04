@@ -1,5 +1,6 @@
+import { CardDialogComponent } from './card-dialog/card-dialog.component';
 import { Component, Input, OnInit } from '@angular/core';
-
+import {MatDialog} from '@angular/material/dialog';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -49,10 +50,19 @@ export class CardComponent implements OnInit {
   akunku_web_Xl_image_class = "ml-0 w-10/12 col-start-2 col-span-3"
   akunku_web_xl_text_class = "my-auto col-span-4"
   akunku_web_xl_list_class = "bg-white shadow-lg rounded-lg my-4"
-  constructor() {
+    constructor(
+      public dialog : MatDialog
+    ) {
   }
 
   ngOnInit(): void {
     
+  }
+  openPengajuanDialog(id_pengajuan: string ): void{
+    const dialogRef = this.dialog.open(CardDialogComponent, {
+      width: '250px',
+      data: id_pengajuan
+    });
+
   }
 }

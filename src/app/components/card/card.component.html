@@ -51,17 +51,22 @@
         <!-- ini masih defaultnya angular material mat-expansion panel
              nanti dikembangin lagi biar sama dengan draft_layanan -->
         <section class="{{no_grid_class}}">
-            <mat-expansion-panel *ngFor="let pengajuan of data_" [ngStyle]="{'background': 'linear-gradient(90deg, pengajuan.warna 4.1666666%, #fbfbfb 2%)'}">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      {{pengajuan.nama_layanan}}
-                    </mat-panel-title>
-                    <mat-panel-description>
-                      {{pengajuan.status}}
-                    </mat-panel-description>
-                  </mat-expansion-panel-header>
-                  <p>ini isinya nanti dibuat</p>
-                </mat-expansion-panel>
+            <div *ngFor="let pengajuan of data_" class="{{card_class}} flex bg-white">
+                <div class=" w-card-side rounded-l-lg block" [ngStyle]="{'background-color' : pengajuan.warna}">
+                    &nbsp;
+                </div>
+                <div class=" w-full flex flex-initial px-2 py-4 md:px-6 md:py-10  justify-between">
+                    <div>
+                        <p class="max-w-xs">{{pengajuan.kategori}}</p>
+                        <h1 class="max-w-sm" [ngClass]="common_title_text">{{pengajuan.nama_layanan}}</h1>
+                    </div>
+                    <div class="md:flex md:justify-between hidden">
+                        <button  class="border-2 border-accent text-accent px-8 mr-4 rounded-lg" (click)="openPengajuanDialog(pengajuan.id)">
+                            Lihat detail
+                        </button>
+                    </div>
+                </div>
+            </div>
         </section>
     </ng-container>
     <ng-container *ngSwitchCase='"rangkuman"'>

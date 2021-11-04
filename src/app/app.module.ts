@@ -27,6 +27,7 @@ import { ProgressPengajuanStepperComponent } from './components/progress-pengaju
 import { MasukComponent } from './pages/masuk/masuk.component';
 import { MainUserComponent } from './pages/akun/main-user/main-user.component';
 import { PengajuanTerprosesComponent } from './pages/pengajuan-terproses/pengajuan-terproses.component';
+import { CardDialogComponent } from './components/card/card-dialog/card-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { PengajuanTerprosesComponent } from './pages/pengajuan-terproses/pengaju
     ProgressPengajuanStepperComponent,
     MasukComponent,
     MainUserComponent,
-    PengajuanTerprosesComponent
+    PengajuanTerprosesComponent,
+    CardDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +63,9 @@ import { PengajuanTerprosesComponent } from './pages/pengajuan-terproses/pengaju
   ],
   providers: [
 
+  ],
+  entryComponents : [
+    CardDialogComponent
   ],
   bootstrap: [AppComponent]
 })
