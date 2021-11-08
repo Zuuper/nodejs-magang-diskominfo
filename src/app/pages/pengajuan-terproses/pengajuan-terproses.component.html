@@ -1,4 +1,4 @@
-<section [ngClass]="device ? [common_section_margin_class,header_flex_class] : hidden_component">
+<section [ngClass]="!device ? [common_section_margin_class,header_flex_class] : hidden_component">
     <h1 class="text-5xl">
         Pengajuan Terproses
     </h1>
@@ -23,5 +23,5 @@
 </ng-template>
 
 <ng-template #data_layanan_view>
-    <app-card [card_pilihan]="'draft_layanan'" [data_]="data_draft"></app-card>
+    <app-card [card_pilihan]="'pengajuan_layanan'" [data_]="data_draft"></app-card>
 </ng-template>

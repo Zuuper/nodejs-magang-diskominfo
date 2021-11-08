@@ -1,0 +1,17 @@
+<div [ngSwitch]="icon" >
+    <ng-container *ngSwitchCase="'Pengajuan Layanan'">
+        <img src="../../../../../assets/icon/ic_round-subject.svg" alt="" class="h-2/7">
+    </ng-container>
+    <ng-container *ngSwitchCase="'validasi data pengajuan'">
+        <img src="../../../../../assets/icon/ic_round-spellcheck.svg" alt="" class="max-w-4xl">
+    </ng-container>
+    <ng-container *ngSwitchCase="'Penyetujuan pengajuan'">
+        <img src="../../../../../assets/icon/ic_round-edit-note.svg" alt="" class="max-w-4xl">
+    </ng-container>
+    <ng-container *ngSwitchCase="'penandatanganan pengajuan'">
+        <img src="../../../../../assets/icon/la_signature.svg" alt="" class="max-w-4xl">
+    </ng-container>
+    <ng-container *ngSwitchCase="'pengajuan selesai'">
+        <img src="../../../../../assets/icon/ic_round-playlist-add-check.svg" alt="" class="max-w-xl">
+    </ng-container>
+</div>

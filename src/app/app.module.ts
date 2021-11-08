@@ -28,6 +28,9 @@ import { MasukComponent } from './pages/masuk/masuk.component';
 import { MainUserComponent } from './pages/akun/main-user/main-user.component';
 import { PengajuanTerprosesComponent } from './pages/pengajuan-terproses/pengajuan-terproses.component';
 import { CardDialogComponent } from './components/card/card-dialog/card-dialog.component';
+import { DialogIconComponent } from './components/card/card-dialog/dialog-icon/dialog-icon.component';
+import { AkunSayaComponent } from './components/akun-saya/akun-saya.component';
+import { DetailAkunSayaComponent } from './components/detail-akun-saya/detail-akun-saya.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +56,10 @@ import { CardDialogComponent } from './components/card/card-dialog/card-dialog.c
     MasukComponent,
     MainUserComponent,
     PengajuanTerprosesComponent,
-    CardDialogComponent
+    CardDialogComponent,
+    DialogIconComponent,
+    AkunSayaComponent,
+    DetailAkunSayaComponent
   ],
   imports: [
     BrowserModule,

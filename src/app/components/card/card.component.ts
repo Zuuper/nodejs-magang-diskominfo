@@ -38,14 +38,25 @@ export class CardComponent implements OnInit {
                       lg:text-2xl lg:max-w-2xl\
                       xl:text-3xl\
                       2xl:text-4xl"
-  common_sub_heading_text = "text-sm max-w-xl capitalize\
+  common_card_title_text ="text-sm max-w-xl capitalize\
+                      md:text-lg\
+                      lg:text-xl lg:max-w-2xl\
+                      xl:text-2xl\
+                      2xl:text-3xl"
+  common_sub_heading_text = "text-xs max-w-xl capitalize\
                               md:text-md\
                               lg:text-lg lg:max-w-2xl\
                               xl:text-xl\
                               2xl:text-2xl"
-  common_cta_text = "text-xs max-w-lg capitalize\
+  common_cta_text = "text-xs max-w-lg\
                       2xl:text-sm"
-  rangkuman_card_text = "pl-2 my-auto text-white"
+  rangkuman_card_text = "pl-2 text-white"
+  rangkuman_icon_image = "w-4 h-4 md:w-6 md:h-6 lg:w-12 lg:h-12"
+  rangkuman_heading = "text-xs max-w-xl capitalize\
+                        md:text-sm\
+                        lg:text-md lg:max-w-2xl\
+                        xl:text-lg\
+                        2xl:text-xl"
   akunku_web_xl_card_class = "bg-white shadow-lg rounded-lg grid grid-cols-8 gap-4 py-4 my-4"
   akunku_web_Xl_image_class = "ml-0 w-10/12 col-start-2 col-span-3"
   akunku_web_xl_text_class = "my-auto col-span-4"
@@ -60,8 +71,8 @@ export class CardComponent implements OnInit {
   }
   openPengajuanDialog(id_pengajuan: string ): void{
     const dialogRef = this.dialog.open(CardDialogComponent, {
-      width: '250px',
-      data: id_pengajuan
+      data: id_pengajuan,
+      panelClass: 'w-full'
     });
 
   }

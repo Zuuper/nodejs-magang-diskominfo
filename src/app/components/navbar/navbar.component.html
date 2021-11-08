@@ -1,5 +1,5 @@
 <header>
-    <ng-template [ngIf]="device" [ngIfElse]="mobile">
+    <ng-template [ngIf]="!device" [ngIfElse]="mobile">
         <nav  [ngClass]="[nav_component_class, container_component]">
             <div class="flex items-center" [routerLink]="['/menu/home']">
                 <img src="../../../assets/svg-images/badung_logo.svg" [ngClass]="nav_logo_class" >

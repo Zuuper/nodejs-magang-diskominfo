@@ -1,14 +1,17 @@
-<ng-template [ngIf]="device" [ngIfElse]="mobile" [ngClass]="main_component_class">
-    <div [ngClass]="left_side_component_class">
-        <h4 [ngClass]="left_side_title_component_class">Silades</h4>
-        &nbsp;
-    </div>
-    <div [ngClass]="right_side_component_class">
-        <router-outlet></router-outlet>
-    </div>
-</ng-template>
-<ng-template #mobile>
+<ng-template [ngIf]="device" [ngIfElse]="web">
     <div class="bg-white p-4">
         <router-outlet></router-outlet>
     </div>
+</ng-template>
+<ng-template #web>
+    <section [ngClass]="main_component_class">
+        <div [ngClass]="left_side_component_class">
+            <h4 [ngClass]="left_side_title_component_class">Silades</h4>
+            &nbsp;
+        </div>
+        <div [ngClass]="right_side_component_class">
+            <router-outlet></router-outlet>
+        </div>
+    </section>
+
 </ng-template>

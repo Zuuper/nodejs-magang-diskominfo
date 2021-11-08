@@ -9,12 +9,12 @@
                     &nbsp;
                 </div>
                 <div class="px-5 pt-2 pb-4">
-                    <div class="pb-7">
-                        <p [ngClass]="common_sub_heading_text">{{list.kategori}}</p>
-                        <h1 [ngClass]="common_title_text">{{list.nama_layanan}}</h1>
+                    <div class="pb-7 h-full">
+                        <p class="caption">{{list.kategori}}</p>
+                        <h1 [ngClass]="common_card_title_text">{{list.nama_layanan}}</h1>
                     </div>
-                    <div class="flex flex-row align-bottom">
-                        <button class="bg-primary text-white p-2 mr-2 rounded-md" [routerLink]="['/menu/layanan/buat-layanan']">
+                    <div class="grid grid-cols-1 md:flex md:flex-row align-bottom">
+                        <button class="bg-primary text-white p-2 mr-2 rounded-md hidden md:block" [routerLink]="['/menu/layanan/buat-layanan']">
                             <p [ngClass]="common_cta_text">Buat Pengajuan</p></button>
                         <button class="text-secondary px-0">
                             <p [ngClass]="common_cta_text">baca selengkapnya</p>
@@ -72,23 +72,23 @@
     <ng-container *ngSwitchCase='"rangkuman"'>
         <section [ngClass]="mobile ? grid_class_1_cols : grid_class_3_cols">
             <div class=" bg-primary {{card_class}} flex  px-8 py-4" [ngClass]="{'hidden' : mobile}">
-                <img src="../../../assets/icon/ic_baseline_verified_user.svg" class=" w-4 h-4 md:w-8 md:h-8 lg:w-16 lg:h-16">
+                <img src="../../../assets/icon/ic_baseline_verified_user.svg" [ngClass]="rangkuman_icon_image">
                 <div [ngClass]="rangkuman_card_text">
-                    <h1 [ngClass]="common_sub_heading_text">Status Akun</h1>
+                    <h1 [ngClass]="rangkuman_heading">Status Akun</h1>
                     <p class="caption">belum verifikasi</p>
                 </div>
             </div>
             <div class=" bg-secondary {{card_class}} flex flex-wrap px-8 py-4">
-                <img src="../../../assets/icon/ic_round-drafts.svg" class="w-16 h-16">
+                <img src="../../../assets/icon/ic_round-drafts.svg" [ngClass]="rangkuman_icon_image">
                 <div [ngClass]="rangkuman_card_text">
-                    <h1 [ngClass]="common_sub_heading_text">Draft Pengajuann</h1>
+                    <h1 [ngClass]="rangkuman_heading">Draft Pengajuann</h1>
                     <p class="caption">tidak ada draft</p>
                 </div>
             </div>
             <div class="bg-accent {{card_class}} flex px-8 py-4">
-                <img src="../../../assets/icon/ic_round_insert_drive_file.svg" class="w-16 h-16">
+                <img src="../../../assets/icon/ic_round_insert_drive_file.svg" [ngClass]="rangkuman_icon_image">
                 <div [ngClass]="rangkuman_card_text">
-                    <h1 [ngClass]="common_sub_heading_text">Pengajuan Selesai</h1>
+                    <h1 [ngClass]="rangkuman_heading">Pengajuan Selesai</h1>
                     <p class="caption">tidak ada pengajuan selesai</p>
                 </div>
             </div>
@@ -129,11 +129,11 @@
             <div class="px-4">
                 <mat-list [ngClass]="akunku_web_xl_list_class">
                     <mat-list-item>
-                        <a class="text-xs">Akun Saya</a>
+                        <a class="text-xs" [routerLink]="['akun-user']" >Akun Saya</a>
                     </mat-list-item>
                     <mat-divider></mat-divider>
                     <mat-list-item>
-                        <a class="text-xs">Detail Akun</a>
+                        <a class="text-xs" [routerLink]="['detail-akun-user']">Detail Akun</a>
                     </mat-list-item>
                 </mat-list>
             </div>

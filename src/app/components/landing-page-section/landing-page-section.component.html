@@ -108,22 +108,25 @@
     </section>
 
     <section *ngSwitchCase="'akun_hero'" [ngClass]="akun_hero_main_class">
-        <div class="my-auto">
+        <div class="py-8 md:my-auto md:py-0">
             <div class="text-white mb-16 md:mb-12 ">
                 <h1 [ngClass]="common_title_text" class="mb-4">Hi, Aditya Ersa</h1>
                 <p class="max-w-md md:max-w-sm caption">ayo segera aktivasi akunmu agar bisa melakukan pengajuan layanan</p>
             </div>
-            <div class="grid grid-cols-2 md:pr-20 lg:pr-24 xl:pr-28 2xl:pr-32 gap-2 md:gap-6">
-                <button class="bg-primary text-white p-2 rounded-lg caption">
+            <div class="grid grid-cols-2 md:pr-16 lg:pr-24 xl:pr-28 2xl:pr-32 gap-2 md:gap-6">
+                <button class="bg-primary text-white p-2 rounded-lg text-xs md:caption">
                     Verifikasi akun
                 </button>
-                <button class="p-2 text-white border-white border-2 rounded-lg caption">
+                <button class="p-2 text-white border-white border-2 rounded-lg text-xs md:test-sm">
                     Sign Out
                 </button>
             </div>
         </div>
-        <div [ngClass]="hero_right_side_image">
-            <img src="../../../assets/svg-images/akunku_image_2.svg" class=" py-12">
+        <div [ngClass]="akun_hero_image_side">
+            <div class="justify-self-center">
+                <img src="../../../assets/svg-images/akunku_image_2.svg" class="py-12 w-11/12 ">
+
+            </div>
         </div>
     </section>
 </section>

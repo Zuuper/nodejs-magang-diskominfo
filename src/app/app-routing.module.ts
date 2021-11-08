@@ -15,6 +15,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AkunSayaComponent } from './components/akun-saya/akun-saya.component';
+import { DetailAkunSayaComponent } from './components/detail-akun-saya/detail-akun-saya.component';
 
 const routes: Routes = [
   {path: '', redirectTo : 'auth/masuk', pathMatch: 'full'},
@@ -37,7 +39,9 @@ const routes: Routes = [
     {path: 'akun', component: MainUserComponent, children: [
       {path: '', component: AkunUserComponent},
       {path: 'aktivasi-user', component: AktivasiUserComponent},
-      {path: 'detail-user', component: DetailUserComponent}
+      {path: 'detail-user', component: DetailUserComponent},
+      {path: 'detail-akun-user', component: DetailAkunSayaComponent},
+      {path: 'akun-user', component: AkunSayaComponent},
     ]}
   ]}
 ];

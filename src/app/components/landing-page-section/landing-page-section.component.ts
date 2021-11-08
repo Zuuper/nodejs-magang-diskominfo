@@ -38,7 +38,7 @@ export class LandingPageSectionComponent implements OnInit {
                           lg:px-20 \
                           xl:px-24 \
                           2xl:px-28"
-  akun_hero_image_side = "w-10/12 xl:w-9/12"
+  akun_hero_image_side = "hidden md:flex md:relative ml-auto w-8/12 justify-end"
   // End CSS Classes
 
 

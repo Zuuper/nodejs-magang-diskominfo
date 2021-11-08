@@ -1,0 +1,35 @@
+<div class="hidden md:block">
+    <div class="flex justify-between">
+        <h3>
+            Detail akun
+        </h3>
+        <button class=" text-primary hidden md:block caption">
+            Edit detail data
+        </button>
+    </div>
+    <div class="mt-12">
+        <app-text-field [form_field]="form_detail_akun" [grid]="false"></app-text-field>
+    </div>
+    <div class="flex md:justify-end mt-12">
+        <button class="text-secondary px-6 py-4 md:mr-8 caption">batal edit data</button>
+        <button class="text-white bg-primary px-6 py-4 rounded-lg caption">Simpan data</button>
+    </div>
+</div>
+
+<div class="md:hidden mt-8">
+    <div class="flex justify-between">
+        <h3>
+            Detail akun
+        </h3>
+        <button class=" text-primary caption">
+            Edit
+        </button>
+    </div>
+    <div class="mt-12">
+        <app-text-field [form_field]="form_detail_akun" [grid]="false"></app-text-field>
+    </div>
+    <div class="grid grid-cols-1 mt-12">
+        <button class="text-white bg-primary px-6 py-4 rounded-lg caption">Simpan data</button>
+        <button class="text-secondary px-6 py-4 md:mr-8 caption">kembali</button>
+    </div>
+</div>

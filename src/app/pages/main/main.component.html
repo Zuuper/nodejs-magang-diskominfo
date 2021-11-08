@@ -1,9 +1,9 @@
-<div  [ngClass]="device ? mobile_nav : regular">
-    <app-navbar></app-navbar>
-</div>
+<app-navbar></app-navbar>
 <article class="min-h-full">
     <router-outlet></router-outlet>
 </article>
-<div [ngClass]="device ? mobile_footer : regular">
+<div [ngClass]="!device ? regular : mobile_footer">
     <app-footer></app-footer>
 </div>
+
+

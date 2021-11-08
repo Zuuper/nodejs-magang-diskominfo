@@ -1,4 +1,4 @@
-<ng-template [ngIf]="device" [ngIfElse]="mobile">
+<ng-template [ngIf]="!device" [ngIfElse]="mobile">
     <section id="hero" [ngClass]="[hero_component_class, container_component]">
         <div [ngClass]="left_side_hero_child_component_class">
             <app-landing-page-section [section_]='"hero"'></app-landing-page-section>
@@ -50,13 +50,13 @@
                                 <h1 [ngClass]="common_title_text" class="text-center md:text-left">{{fitur_2_title}}</h1>
                                 <p [ngClass]="fitur_text_class">{{fitur_2_text}}</p>
                             </div>
-                            <div [ngClass]="cta_fitur_child_component_class" class="grid grid-cols-1 md:flex md:flex-wrap">
+                            <div [ngClass]="cta_fitur_child_component_class" class="grid grid-cols-1 md:flex md:justify-start">
                                 <div class="hidden md:block">
-                                    <button mat-flat-button class="bg-primary text-white text-center">
-                                        <span class="mx-4">{{cta_1}}</span>
+                                    <button class="bg-primary rounded-sm p-4 text-white text-center">
+                                        <span class=" mx-2 caption">{{cta_1}}</span>
                                     </button>
                                 </div>
-                                <button mat-button class="text-secondary caption">{{cta_2}}</button>
+                                <button class="text-secondary caption md:ml-4">{{cta_2}}</button>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
         </div>
     </section>
     
-    <section id="penutup" [ngClass]="common_section_margin_class" class="-mb-14 md:mb-0">
+    <section id="penutup" [ngClass]="common_section_margin_class" class="-mb-14">
         <app-landing-page-section [section_]='"akhiran_text_ditengah"'>
                 <ng-container slot="text">  
                     <div [ngClass]="penutup_text_class">
