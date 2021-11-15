@@ -26,7 +26,7 @@
     </ng-container>
     <ng-container *ngSwitchCase='"draft_layanan"'>
         <section class="{{no_grid_class}}">
-            <div *ngFor="let draft of data_" class="{{card_class}} flex bg-white">
+            <div *ngFor="let draft of data_" class="{{card_class}} flex bg-white" [routerLink]="['/menu/layanan/draft-detail/', draft.id]">
                 <div class=" w-card-side rounded-l-lg block" [ngStyle]="{'background-color' : draft.warna}">
                     &nbsp;
                 </div>
@@ -36,7 +36,7 @@
                         <h1 class="max-w-sm" [ngClass]="common_title_text">{{draft.nama_layanan}}</h1>
                     </div>
                     <div class="md:flex md:justify-between hidden">
-                        <button  class="border-2 border-accent text-accent px-8 mr-4 rounded-lg">
+                        <button  class="border-2 border-accent text-accent px-8 mr-4 rounded-lg" [routerLink]="['/menu/layanan/draft-detail/', draft.id]">
                             Lihat dan edit
                         </button>
                         <button  class="border-2 border-primary text-primary px-8 rounded-lg">
@@ -50,8 +50,8 @@
     <ng-container *ngSwitchCase='"pengajuan_layanan"'>
         <!-- ini masih defaultnya angular material mat-expansion panel
              nanti dikembangin lagi biar sama dengan draft_layanan -->
-        <section class="{{no_grid_class}}">
-            <div *ngFor="let pengajuan of data_" class="{{card_class}} flex bg-white">
+        <section class="{{no_grid_class}} hidden md:block">
+            <div *ngFor="let pengajuan of data_" class="{{card_class}} hidden md:flex bg-white">
                 <div class=" w-card-side rounded-l-lg block" [ngStyle]="{'background-color' : pengajuan.warna}">
                     &nbsp;
                 </div>
@@ -67,6 +67,19 @@
                     </div>
                 </div>
             </div>
+        </section>
+        <section class="{{no_grid_class}} md:hidden">
+            <div *ngFor="let pengajuan of data_" class="{{card_class}} flex md:hidden bg-white" [routerLink]="['/menu/layanan/pengajuan-detail/', pengajuan.id]">
+                <div class=" w-card-side rounded-l-lg block" [ngStyle]="{'background-color' : pengajuan.warna}">
+                    &nbsp;
+                </div>
+                <div class=" w-full flex flex-initial px-2 py-4 md:px-6 md:py-10  justify-between">
+                    <div>
+                        <p class="max-w-xs">{{pengajuan.kategori}}</p>
+                        <h1 class="max-w-sm" [ngClass]="common_title_text">{{pengajuan.nama_layanan}}</h1>
+                    </div>
+                </div>
+            </div>  
         </section>
     </ng-container>
     <ng-container *ngSwitchCase='"rangkuman"'>
@@ -137,23 +150,15 @@
                     </mat-list-item>
                 </mat-list>
             </div>
-            <h1 [ngClass]="common_sub_heading_text" class="-mb-3 mt-4">Draft Pengajuan</h1>
+            <h1 [ngClass]="common_sub_heading_text" class="-mb-3 mt-4">Data Pengajuan</h1>
             <div class="px-4">
                 <mat-list [ngClass]="akunku_web_xl_list_class">
                     <mat-list-item>
-                        <a class="text-xs">Draft Pengajuan</a>
-                    </mat-list-item>
-                </mat-list>
-            </div>
-            <h1 [ngClass]="common_sub_heading_text" class="-mb-3 mt-4">Pengajuan Terproses</h1>
-            <div class="px-4">
-                <mat-list [ngClass]="akunku_web_xl_list_class">
-                    <mat-list-item>
-                        <a class="text-xs">Pengajuan Terproses</a>
+                        <a class="text-xs" [routerLink]="['/menu/layanan/draft-layanan']">Draft Pengajuan</a>
                     </mat-list-item>
                     <mat-divider></mat-divider>
                     <mat-list-item>
-                        <a class="text-xs">Pengajuan Selesai</a>
+                        <a class="text-xs" [routerLink]="['/menu/layanan/pengajuan-layanan']">Pengajuan Terproses</a>
                     </mat-list-item>
                 </mat-list>
             </div>

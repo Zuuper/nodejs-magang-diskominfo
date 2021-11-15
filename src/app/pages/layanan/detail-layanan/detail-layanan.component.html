@@ -1,0 +1,21 @@
+<div class="p-4 md:p-8">
+    <h2 class="text-3xl mb-8">{{detail.nama_layanan}}</h2>
+    <div class="mb-4">
+        <h4 class="text-xl mb-1">waktu pengerjaan</h4>
+        <p class="caption">{{detail.waktu_pengerjaan}}</p>
+    </div>
+    <div class="mb-8">
+        <h4 class="text-xl mb-1">daftar syarat</h4>
+        <ul *ngFor="let syarat of detail.daftar_syarat">
+            <li class="caption">{{syarat.nama_syarat}}</li>
+        </ul>
+    </div>
+    <div class="mb-4">
+        <p class="caption">{{detail.keterangan}}</p>
+    </div>
+    <p class="caption text-secondar mb-12 ">lihat output layanan</p>
+    <div class="grid grid-cols-1 gap-4 md:flex md:justify-end">
+        <button class="text-primary caption md:mr-4">kembali</button>
+        <button class="text-white bg-primary rounded-lg caption">buat pengajuan</button>
+    </div>
+</div>

@@ -31,6 +31,9 @@ import { CardDialogComponent } from './components/card/card-dialog/card-dialog.c
 import { DialogIconComponent } from './components/card/card-dialog/dialog-icon/dialog-icon.component';
 import { AkunSayaComponent } from './components/akun-saya/akun-saya.component';
 import { DetailAkunSayaComponent } from './components/detail-akun-saya/detail-akun-saya.component';
+import { DraftPengajuanComponent } from './components/draft-pengajuan/draft-pengajuan.component';
+import { DetailPengajuanComponent } from './pages/pengajuan-terproses/detail-pengajuan/detail-pengajuan.component';
+import { DetailLayananComponent } from './pages/layanan/detail-layanan/detail-layanan.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +62,10 @@ import { DetailAkunSayaComponent } from './components/detail-akun-saya/detail-ak
     CardDialogComponent,
     DialogIconComponent,
     AkunSayaComponent,
-    DetailAkunSayaComponent
+    DetailAkunSayaComponent,
+    DraftPengajuanComponent,
+    DetailPengajuanComponent,
+    DetailLayananComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +77,8 @@ import { DetailAkunSayaComponent } from './components/detail-akun-saya/detail-ak
 
   ],
   entryComponents : [
-    CardDialogComponent
+    CardDialogComponent,
+    DetailLayananComponent
   ],
   bootstrap: [AppComponent]
 })

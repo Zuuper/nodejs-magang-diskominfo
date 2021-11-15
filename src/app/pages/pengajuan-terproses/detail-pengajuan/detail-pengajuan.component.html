@@ -1,0 +1,19 @@
+<div class="mt-4 mb-8">
+    <p class="uppercase text-primary caption">
+        {{detail.kategori}}
+    </p>
+    <h1 [ngClass]="common_title_text">
+        {{detail.nama_layanan}}
+    </h1>
+</div>
+<div class="grid grid-cols-1 justify-items-center mb-4">
+    <img src="../../../../assets/svg-images/Completed_task _Isometric.svg">
+</div>
+<div>
+    <h4 class="mb-2">Detail Proses</h4>
+    <P class="caption">{{detail.detail_status}}</P>
+</div>
+<div class="mb-4 mt-8 inset-x-0 bottom-0 grid grid-cols-2 gap-4">
+    <button class="border-2 border-primary text-primary rounded-lg caption py-4">Kembali</button>
+    <button class="bg-primary text-white rounded-lg caption py-4">Cetak surat</button>
+</div>
