@@ -78,7 +78,6 @@ import { DetailLayananComponent } from './pages/layanan/detail-layanan/detail-la
   ],
   entryComponents : [
     CardDialogComponent,
-    DetailLayananComponent
   ],
   bootstrap: [AppComponent]
 })

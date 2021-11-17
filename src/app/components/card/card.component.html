@@ -17,7 +17,7 @@
                         <button class="bg-primary text-white p-2 mr-2 rounded-md hidden md:block" [routerLink]="['/menu/layanan/buat-layanan']">
                             <p [ngClass]="common_cta_text">Buat Pengajuan</p></button>
                         <button class="text-secondary px-0">
-                            <p [ngClass]="common_cta_text">baca selengkapnya</p>
+                            <p [ngClass]="common_cta_text" [routerLink]="['/menu/layanan/detail-layanan/', list.id]">baca selengkapnya</p>
                         </button>
                     </div>
                 </div>
