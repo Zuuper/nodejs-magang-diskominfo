@@ -11,7 +11,7 @@ export class MainComponent implements OnInit {
 
   // Css Classes Start here
   regular = ""
-  mobile_nav = "absolute inset-x-0 bottom-0"
+  mobile_nav = "fixed inset-x-0 bottom-0 mt-4 bg-white"
   mobile_footer = "hidden"
   // Css Classes End Here  
   constructor() { }

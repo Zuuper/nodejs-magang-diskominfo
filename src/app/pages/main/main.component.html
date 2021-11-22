@@ -1,4 +1,6 @@
+<div [ngClass]="!device ? regular : mobile_nav">
 <app-navbar></app-navbar>
+</div>
 <article class="min-h-full">
     <router-outlet></router-outlet>
 </article>
