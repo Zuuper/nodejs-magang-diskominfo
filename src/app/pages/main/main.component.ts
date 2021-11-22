@@ -13,6 +13,7 @@ export class MainComponent implements OnInit {
   regular = ""
   mobile_nav = "fixed inset-x-0 bottom-0 mt-4 bg-white"
   mobile_footer = "hidden"
+  article_mobile = "mb-8"
   // Css Classes End Here  
   constructor() { }
 
