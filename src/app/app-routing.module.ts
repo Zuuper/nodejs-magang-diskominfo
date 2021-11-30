@@ -1,3 +1,4 @@
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { DetailLayananComponent } from './pages/layanan/detail-layanan/detail-layanan.component';
 import { DetailPengajuanComponent } from './pages/pengajuan-terproses/detail-pengajuan/detail-pengajuan.component';
 import { PengajuanTerprosesComponent } from './pages/pengajuan-terproses/pengajuan-terproses.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'menu/layanan', redirectTo:'menu/layanan/data-layanan', pathMatch: 'full'},
   {path : 'auth', component: MasukComponent, children : [
     {path : 'masuk', component : LoginComponent},
-    {path : 'registrasi', component: RegisterComponent}
+    {path : 'registrasi', component: RegisterComponent},
+    {path : 'lupa-password', component: ForgotPasswordComponent}
   ]},
   {path: 'menu', component: MainComponent, children : [
     {path: 'home', component: LandingPageComponent},

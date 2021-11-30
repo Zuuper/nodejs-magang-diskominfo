@@ -34,6 +34,8 @@ import { DetailAkunSayaComponent } from './components/detail-akun-saya/detail-ak
 import { DraftPengajuanComponent } from './components/draft-pengajuan/draft-pengajuan.component';
 import { DetailPengajuanComponent } from './pages/pengajuan-terproses/detail-pengajuan/detail-pengajuan.component';
 import { DetailLayananComponent } from './pages/layanan/detail-layanan/detail-layanan.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { UniversalDialogComponent } from './components/universal-dialog/universal-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +67,9 @@ import { DetailLayananComponent } from './pages/layanan/detail-layanan/detail-la
     DetailAkunSayaComponent,
     DraftPengajuanComponent,
     DetailPengajuanComponent,
-    DetailLayananComponent
+    DetailLayananComponent,
+    ForgotPasswordComponent,
+    UniversalDialogComponent
   ],
   imports: [
     BrowserModule,
