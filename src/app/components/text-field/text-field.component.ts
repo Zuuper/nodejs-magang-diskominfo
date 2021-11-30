@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-text-field',
@@ -17,6 +17,9 @@ export class TextFieldComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   @Input() form_field: any 
   @Input() grid = false
+  @Input() type_form = ''
+  form_data !: FormGroup;
+
   constructor() { }
 
   // Start Css Classes
@@ -26,8 +29,15 @@ export class TextFieldComponent implements OnInit {
   form_no_grid_field = 'form-field w-full pb-5'
   // End Css Classes
   ngOnInit(): void {
+    this.setNewFormField()
   }
-
+  setNewFormField(){ 
+    let new_form: any = {}
+    for (let x in this.form_field){
+      new_form[this.form_field[x]['field_name']] = new FormControl('')
+    }
+    this.form_data = new FormGroup(new_form)
+  }
   getErrorMessage() {
     // fungsi untuk nampilin error di form
     if (this.email.hasError('required')) {
@@ -37,5 +47,8 @@ export class TextFieldComponent implements OnInit {
       return 'Not a valid email';
     }
     return '';
+  }
+  onSubmit(){
+    console.log(this.form_data.value)
   }
 }

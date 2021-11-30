@@ -36,6 +36,7 @@ import { DetailPengajuanComponent } from './pages/pengajuan-terproses/detail-pen
 import { DetailLayananComponent } from './pages/layanan/detail-layanan/detail-layanan.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { UniversalDialogComponent } from './components/universal-dialog/universal-dialog.component';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,13 +70,15 @@ import { UniversalDialogComponent } from './components/universal-dialog/universa
     DetailPengajuanComponent,
     DetailLayananComponent,
     ForgotPasswordComponent,
-    UniversalDialogComponent
+    UniversalDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     StylingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
 

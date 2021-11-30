@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="form_data" (ngSubmit)="onSubmit()"> 
     <!-- Section "Form Field Section" digunakan untuk menampilkan 
          form yang diperlukan dalam 
          input data layanan
@@ -7,15 +7,15 @@
         <div *ngFor="let form of form_field;">
             <mat-form-field *ngIf="form.type == 'varchar'" [ngClass]="grid ? form_grid_field : form_no_grid_field" >
                 <mat-label>{{form.field_name}}</mat-label>
-                <input matInput>
+                <input matInput formControlName={{form.field_name}}>
             </mat-form-field>
             <mat-form-field *ngIf="form.type == 'textarea'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-label>{{form.field_name}}</mat-label>
-                <textarea matInput></textarea>
+                <textarea matInput formControlName={{form.field_name}}></textarea>
             </mat-form-field>
             <mat-form-field *ngIf="form.type == 'dropdown'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-label>{{form.field_name}}</mat-label>
-                <mat-select>
+                <mat-select formControlName={{form.field_name}}>
                     <mat-option value="">Pilih satu</mat-option>
                     <mat-option *ngFor="let value_field of form.value" [value]=value_field.id>{{value_field.name}}
                     </mat-option>
@@ -24,7 +24,7 @@
             <div *ngIf="form.type == 'password'" class="pb-5">
                 <mat-form-field  class="form-field w-full">
                     <mat-label>{{form.field_name}}</mat-label>
-                    <input matInput [type]="hide_password ? 'password' : 'text'">
+                    <input matInput [type]="hide_password ? 'password' : 'text'" formControlName={{form.field_name}}>
                     <button mat-icon-button matSuffix (click)="hide_password = !hide_password"
                         [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide_password">
                         <mat-icon>{{hide_password ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -40,7 +40,7 @@
             <section *ngIf="form.type == 'upload_file'" [ngClass]="grid ? form_grid_field : form_no_grid_field" class="mt-5">
                 <label class=" bg-primary text-white p-4 rounded-lg"><span>upload {{form.field_name}}</span>
                     <br class="mt-2">
-                    <input type="file" class="hidden" onchange="console.log(event.target.files)">
+                    <input type="file" class="hidden" formControlName={{form.field_name}}>
                 </label>
             </section>
             <mat-form-field *ngIf="form.type == 'checkbox'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
@@ -48,5 +48,6 @@
             </mat-form-field>
         </div>
         <ng-content select="[slot=cta_button]"></ng-content>
+        <button mat-flat-button class="bg-primary text-white w-full text-lg" type="submit">testing</button>
     </section>
 </form>
