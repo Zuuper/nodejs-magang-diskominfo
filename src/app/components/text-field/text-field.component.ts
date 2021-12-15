@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-text-field',
@@ -15,11 +16,12 @@ export class TextFieldComponent implements OnInit {
   */
   hide_password = true;
   email = new FormControl('', [Validators.required, Validators.email]);
-  @Input() form_field: any 
+  @Input() form_field : any 
   @Input() grid = false
   @Input() type_form = ''
+  @Output() form_result : EventEmitter<any> = new EventEmitter();;
   form_data !: FormGroup;
-
+  // form = {id: int, nama_form : string, value : [{id: int, name_value: string}] default(null)}
   constructor() { }
 
   // Start Css Classes
@@ -34,6 +36,9 @@ export class TextFieldComponent implements OnInit {
   setNewFormField(){ 
     let new_form: any = {}
     for (let x in this.form_field){
+      if(this.form_field[x]['field_name'] == "email" || this.form_field[x]['field_name'] == 'password' || this.form_field[x]['field_name'] =="re-password"){
+        new_form[this.form_field[x]['field_name']] = new FormControl('',Validators.required)
+      }
       new_form[this.form_field[x]['field_name']] = new FormControl('')
     }
     this.form_data = new FormGroup(new_form)
@@ -50,5 +55,7 @@ export class TextFieldComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.form_data.value)
+    this.form_result.emit(this.form_data.value)
   }
+
 }

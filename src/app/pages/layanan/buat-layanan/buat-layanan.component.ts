@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-buat-layanan',
   templateUrl: './buat-layanan.component.html',
@@ -30,9 +31,47 @@ export class BuatLayananComponent implements OnInit {
                         lg:text-4xl\
                         xl:text-5xl"
 // End Css Classes
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
+  getValue(value : any){
+    for(let x in value){
 
+      if(value[x] == ""){
+        return Swal.fire({
+          icon : "warning",
+          title : "data belum lengkap",
+          text : 'menuyimpan sebagai draft yang akan di edit nanti ?',
+          showDenyButton : true,
+          confirmButtonText : 'simpan draft',
+          denyButtonText : `batal dan hapus`
+      }).then((result)=>{
+        if(result.isConfirmed){
+          Swal.fire("draft tersimpan","","success")
+        }else if(result.isDenied){Swal.fire("draft terhapus","","info")}
+      })
+      }    
+      else if(value[x] == "undefined"){
+        return Swal.fire('value undefined',"kemungkinan ada error dalam sistem", 'error')
+      }
+    }
+    Swal.fire({
+      icon : "question",
+      title : "lakukan pengajuan", 
+      text : 'data anda akan disimpan dan diproses untuk pengajuan',
+      showDenyButton : true,
+      showCancelButton : true,
+      confirmButtonText : 'ajukan pengajuan',
+      denyButtonText : 'simpan draft',
+      cancelButtonText : 'kembali'
+    }).then((result)=>{
+      if(result.isConfirmed){
+        Swal.fire('Pengajuan Berhasil','','success')
+      }else if(result.isDenied){
+        Swal.fire('Draft tersimpan','','info')
+      }
+    })
+    return this.router.navigate([''])
+  }
 }

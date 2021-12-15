@@ -14,6 +14,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 @NgModule({
   declarations: [
   ],
@@ -33,7 +34,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCheckboxModule,
     MatListModule,
     MatSlideToggleModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule
   ],
   exports: [
     MatButtonModule,
@@ -50,7 +52,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCheckboxModule,
     MatListModule,
     MatSlideToggleModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule
   ],
   providers: [
     {provide : MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue : {appearance : 'outline'}}

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import Swal from 'sweetalert2';
+import {Router} from '@angular/router'
+import { AuthService } from 'src/app/_service/auth.service';
+import { NodeWithI18n } from '@angular/compiler';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,12 +18,37 @@ export class LoginComponent implements OnInit {
   registrasi : string = "registrasi dulu"
   checked = false
   form_field = [
-    {id:"1",field_name : 'NIK', type : 'varchar'},
-    {id:"2",field_name : 'Password', type : 'password'},
+    {id:"1",nama_field : 'nik'},
+    {id:"2",nama_field : 'Password'},
   ]
-  constructor() { }
+  constructor(private router : Router, private authService : AuthService) { }
 
   ngOnInit(): void {
   }
+  getValue(value : any){
+    for(let x in value){
+      if(value[x] == ''){
+        return Swal.fire("Login Gagal", "anda belum mengisikian " + x, 'error')
+        
+      }else if(typeof value[x] =='undefined'){
+        return Swal.fire("Login Gagal", "error sistem undefined", 'error')
+        
+      }
+    }
+    // nanti di check ke 
+    let data !: any
+    this.authService.masuk(value).subscribe(d =>{
+      const now = new Date()
+      data = d;
+      if(data !== null){
+        const item = {
+          value : data['token'],
+          expiry : now.getTime() + (28800 * 1000) // ditambah 8 jam
+        }
+        localStorage.setItem('access_token', JSON.stringify(item))
+      }
 
+    })
+    return (data !== null) ?  this.router.navigate(['/menu']) : Swal.fire("Login Gagal", "akun tidak ditemukan, mungkin ada salah dengan NIK atau password", 'error')
+  }
 }

@@ -37,6 +37,7 @@ import { DetailLayananComponent } from './pages/layanan/detail-layanan/detail-la
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { UniversalDialogComponent } from './components/universal-dialog/universal-dialog.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,10 +79,11 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     StylingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
-
+    HttpClientModule
   ],
   entryComponents : [
     CardDialogComponent,

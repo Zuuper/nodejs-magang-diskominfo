@@ -3,25 +3,40 @@
          form yang diperlukan dalam 
          input data layanan
     -->
-    <section id="form-field-section" [ngClass]="grid ? input_form_grid_class : no_class">
+    <section id="form-field-section" [ngClass]="grid ? input_form_grid_class : no_class" >
         <div *ngFor="let form of form_field;">
-            <mat-form-field *ngIf="form.type == 'varchar'" [ngClass]="grid ? form_grid_field : form_no_grid_field" >
+            <mat-form-field *ngIf="form.nama_form == 'nama' || form.nama_form == 'nik' || form.nama_form == 'tempat_lahir' || form.nama_form == 'pekerjaan'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-label>{{form.field_name}}</mat-label>
-                <input matInput formControlName={{form.field_name}}>
+                <input matInput formControlName={{form.nama_form}}>
             </mat-form-field>
-            <mat-form-field *ngIf="form.type == 'textarea'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
+
+            <mat-form-field *ngIf="form.nama_form == 'tanggal_lahir'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
+                <input matInput [matDatepicker]="picker" formControlName={{form.nama_form}}>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+            <mat-form-field *ngIf="form.nama_form == 'email'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
+                <mat-label>{{form.nama_form}}</mat-label>
+                <input matInput placeholder="pat@example.com" [formControl]="email" formControlName={{form.nama_form}} required>
+                <mat-error *ngIf="email.invalid" class="pt-4">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field *ngIf="form.nama_form == 'alasan' ||  form.nama_form == 'alamat'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-label>{{form.field_name}}</mat-label>
                 <textarea matInput formControlName={{form.field_name}}></textarea>
             </mat-form-field>
-            <mat-form-field *ngIf="form.type == 'dropdown'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
+
+            <mat-form-field *ngIf="form.nama_form == 'agama' || form.nama_form == 'status_perkawinan'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-label>{{form.field_name}}</mat-label>
                 <mat-select formControlName={{form.field_name}}>
                     <mat-option value="">Pilih satu</mat-option>
-                    <mat-option *ngFor="let value_field of form.value" [value]=value_field.id>{{value_field.name}}
+                    <mat-option *ngFor="let value_field of form.value" [value]=value_field.id>{{value_field.name_value}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-            <div *ngIf="form.type == 'password'" class="pb-5">
+
+            <div *ngIf="form.nama_form == 'password' || form.nama_form == 're-password'" class="pb-5">
                 <mat-form-field  class="form-field w-full">
                     <mat-label>{{form.field_name}}</mat-label>
                     <input matInput [type]="hide_password ? 'password' : 'text'" formControlName={{form.field_name}}>
@@ -32,22 +47,18 @@
                 </mat-form-field>
                 <ng-content select="[id=password-field-link]" class="pt-0"></ng-content>
             </div>
-            <mat-form-field *ngIf="form.type == 'email'" class="form-field w-full pb-5">
-                <mat-label>{{form.field_name}}</mat-label>
-                <input matInput placeholder="pat@example.com" [formControl]="email" required>
-                <mat-error *ngIf="email.invalid" class="pt-4">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
-            <section *ngIf="form.type == 'upload_file'" [ngClass]="grid ? form_grid_field : form_no_grid_field" class="mt-5">
+
+            <section *ngIf="form.nama_form == 'email'" [ngClass]="grid ? form_grid_field : form_no_grid_field" class="mt-5">
                 <label class=" bg-primary text-white p-4 rounded-lg"><span>upload {{form.field_name}}</span>
                     <br class="mt-2">
                     <input type="file" class="hidden" formControlName={{form.field_name}}>
                 </label>
             </section>
+
             <mat-form-field *ngIf="form.type == 'checkbox'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-checkbox>{{form.field_name}}</mat-checkbox>
-            </mat-form-field>
+            </mat-form-field> 
         </div>
         <ng-content select="[slot=cta_button]"></ng-content>
-        <button mat-flat-button class="bg-primary text-white w-full text-lg" type="submit">testing</button>
     </section>
 </form>
