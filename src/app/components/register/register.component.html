@@ -2,7 +2,7 @@
     <h1>{{register}}.</h1>
     <p class="max-w-sm">{{penjelasan_register}}</p>
     <div class="mt-16 max-w-sm">
-        <app-text-field [form_field]="form_field" class="mb-5" (form_result)="(getValue($event))">
+        <app-text-field [form_field]="form_field" class="mb-5" (form_result)="(getValue($event))" [auth_form]=true>
             <div class="mt-10" slot="cta_button">
                 <button mat-flat-button class="bg-primary text-white w-full text-lg mt-5" type=submit>{{register}}</button>
             </div>

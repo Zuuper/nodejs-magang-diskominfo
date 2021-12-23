@@ -18,6 +18,14 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let access_token : any = localStorage.getItem('access_token')
+    access_token = (access_token !== null) ? JSON.parse(access_token) : 0
+    if(access_token !== 0){
+      const now = new Date()
+      if(now.getTime() > access_token['expiry']){
+        localStorage.removeItem('access_token')
+      }
+    }
     this.device = Capacitor.isNativePlatform()
   }
 

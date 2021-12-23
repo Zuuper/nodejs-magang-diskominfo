@@ -13,10 +13,11 @@ export class RegisterComponent implements OnInit {
   buat_akun : string = "sudah punya akun ?"
   registrasi : string = "login aja"
   form_field = [
-    {id:"1",field_name : 'NIK', type : 'varchar'},
-    {id:"2",field_name : 'Nama', type : 'varchar'},
-    {id:"3",field_name : 'password', type : 'password'},
-    {id:"4",field_name : 'ketik ulang password', type : 'password'},
+    {id:"1",nama_form : 'nama'},
+    {id:"2",nama_form : 'nik'},
+    {id:"3",nama_form : 'email'},
+    {id:"4",nama_form : 'password'},
+    {id:"5",nama_form : 're-password'},
   ]
   constructor(private router : Router,private AuthService : AuthService) { }
 
@@ -34,7 +35,11 @@ export class RegisterComponent implements OnInit {
     let data !: any
     this.AuthService.registrasi(value).subscribe(d => {
       data = d
-      return (data !== null) ? Swal.fire("berhasil registrasi", 'silakan untuk melakukan login','success') : Swal.fire("gagal registrasi", "sepertinya ada yang salah ", 'error')
+      if(data['success'] == true){
+        return Swal.fire("berhasil registrasi", 'silakan untuk melakukan login','success'), this.router.navigate(['/auth/masuk'])
+      }else{
+        return Swal.fire("gagal registrasi", "sepertinya ada yang salah ", 'error')
+      }
 
     })
     return 0

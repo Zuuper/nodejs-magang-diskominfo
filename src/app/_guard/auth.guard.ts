@@ -11,8 +11,8 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.auth.isLoggenIn()){
-      this.router.navigate(['menu'])
+    if(this.auth.isLoggenIn() == false){
+      this.router.navigate(['/auth/masuk'])
     }
     return true
   }

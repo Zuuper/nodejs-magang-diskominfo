@@ -27,15 +27,15 @@ const routes: Routes = [
   {path: '', redirectTo : 'auth/masuk', pathMatch: 'full'},
   {path: 'menu', redirectTo : 'menu/home', pathMatch: 'full'},
   {path: 'menu/layanan', redirectTo:'menu/layanan/data-layanan', pathMatch: 'full'},
-  {path : 'auth', component: MasukComponent, canActivate : [SecureGuardGuard], children : [
-    {path : 'masuk', component : LoginComponent},
-    {path : 'registrasi', component: RegisterComponent},
-    {path : 'lupa-password', component: ForgotPasswordComponent}
+  {path : 'auth', component: MasukComponent, children : [
+    {path : 'masuk', component : LoginComponent, canActivate: [SecureGuardGuard]},
+    {path : 'registrasi', component: RegisterComponent, canActivate: [SecureGuardGuard]},
+    {path : 'lupa-password', component: ForgotPasswordComponent, canActivate: [SecureGuardGuard]}
   ]},
   {path: 'menu', component: MainComponent, children : [
     {path: 'home', component: LandingPageComponent},
     {path: 'layanan', component: ListLayananComponent, children: [
-      {path: 'draft-layanan', component: DraftLayananComponent, canActivate : [AuthGuard]  },
+      {path: 'draft-layanan', component: DraftLayananComponent, canActivate : [AuthGuard]},
       {path: 'data-layanan', component: DataLayananComponent},
       {path: 'detail-layanan/:id', component: DetailLayananComponent},
       {path: 'buat-layanan', component: BuatLayananComponent, canActivate : [AuthGuard]},

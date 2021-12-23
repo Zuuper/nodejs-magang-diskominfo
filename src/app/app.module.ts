@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StylingModule } from './styling/styling.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MainComponent } from './pages/main/main.component';
 import { TextFieldComponent } from './components/text-field/text-field.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -38,6 +37,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { UniversalDialogComponent } from './components/universal-dialog/universal-dialog.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { VerifikasiUserComponent } from './pages/akun/verifikasi-user/verifikasi-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +72,7 @@ import { HttpClientModule } from '@angular/common/http';
     DetailLayananComponent,
     ForgotPasswordComponent,
     UniversalDialogComponent,
+    VerifikasiUserComponent,
   ],
   imports: [
     BrowserModule,

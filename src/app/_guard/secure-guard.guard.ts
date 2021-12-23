@@ -10,11 +10,10 @@ export class SecureGuardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.auth.isLoggenIn() !== true){
-      this.router.navigate(['auth/masuk'])
+    if(this.auth.isLoggenIn()){
+      this.router.navigate(['/menu/home'])
     }
     return true
-
   }
   
 }

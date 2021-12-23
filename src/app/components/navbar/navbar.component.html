@@ -11,7 +11,7 @@
                     <li [ngClass]="navbar_list_class"><a [routerLink]="['/menu/layanan']">Layanan</a></li>
                     <li [ngClass]="navbar_list_class"><a>Cara Pengajuan</a></li>
                     <li [ngClass]="navbar_list_class"><a [routerLink]="['/menu/akun']">Akunku</a></li>
-                    <li [ngClass]="navbar_list_class" ><a>Keluar</a></li>
+                    <li [ngClass]="navbar_list_class" (click)="logOut()">Keluar</li>
                     <li [ngClass]="navbar_list_class">
                         <div class="flex flex-wrap items-center">
                             <img src="../../../assets/icon/ic_round_light_mode.svg" class="w-8 h-8 pr-1">
@@ -31,9 +31,9 @@
                 <hr class="text-white -mx-4">
                 <ul class="grid grid-cols-1">
                     <ng-content select="[slot=navbar_menu]"></ng-content>
-                    <li [ngClass]="navbar_list_class" [routerLink]="['/menu/layanan']"><a>Layanan</a></li>
-                    <li [ngClass]="navbar_list_class"><a>Cara Pengajuan</a></li>
-                    <li [ngClass]="navbar_list_class" [routerLink]="['/menu/akun']"><a >Akunku</a></li>
+                    <li [ngClass]="navbar_list_class" [routerLink]="['/menu/layanan']">Layanan</li>
+                    <li [ngClass]="navbar_list_class">Cara Pengajuan</li>
+                    <li [ngClass]="navbar_list_class" [routerLink]="['/menu/akun']">Akunku</li>
                     <li [ngClass]="navbar_list_class">
                         <div class="flex flex-wrap items-center">
                             <p class="mr-4">Mode gelap</p>
@@ -41,7 +41,7 @@
                             </mat-slide-toggle>
                         </div>
                     </li>
-                    <li [ngClass]="navbar_list_class" class="mt-8"><a href="#">Keluar</a></li>
+                    <li [ngClass]="navbar_list_class" class="mt-8" (click)="logOut()">Keluar</li>
                 </ul>
             </section>
         </nav>

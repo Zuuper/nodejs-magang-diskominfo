@@ -15,6 +15,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
   ],
@@ -35,7 +36,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatListModule,
     MatSlideToggleModule,
     MatDialogModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatButtonModule,
@@ -53,7 +55,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatListModule,
     MatSlideToggleModule,
     MatDialogModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     {provide : MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue : {appearance : 'outline'}}

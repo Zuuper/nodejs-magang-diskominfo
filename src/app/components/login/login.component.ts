@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   registrasi : string = "registrasi dulu"
   checked = false
   form_field = [
-    {id:"1",nama_field : 'nik'},
-    {id:"2",nama_field : 'Password'},
+    {id:"1",nama_form : 'nik'},
+    {id:"2",nama_form : 'password'},
   ]
   constructor(private router : Router, private authService : AuthService) { }
 
@@ -32,23 +32,29 @@ export class LoginComponent implements OnInit {
         
       }else if(typeof value[x] =='undefined'){
         return Swal.fire("Login Gagal", "error sistem undefined", 'error')
-        
+
       }
     }
     // nanti di check ke 
     let data !: any
     this.authService.masuk(value).subscribe(d =>{
       const now = new Date()
-      data = d;
-      if(data !== null){
+      data = d['data'];
+      if(d['success'] == true){
         const item = {
-          value : data['token'],
+          value : data['token']['token'],
           expiry : now.getTime() + (28800 * 1000) // ditambah 8 jam
         }
         localStorage.setItem('access_token', JSON.stringify(item))
+        return this.router.navigate(['/menu'])
+      }
+      else{
+        return Swal.fire("Login Gagal", "akun tidak ditemukan, mungkin ada salah dengan NIK atau password", 'error')
       }
 
     })
-    return (data !== null) ?  this.router.navigate(['/menu']) : Swal.fire("Login Gagal", "akun tidak ditemukan, mungkin ada salah dengan NIK atau password", 'error')
+
+    return console.log(data)
+    //return (data !== null) ?  ) : 
   }
 }

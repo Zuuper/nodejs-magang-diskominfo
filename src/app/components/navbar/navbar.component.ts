@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 @Component({
@@ -16,7 +17,7 @@ export class NavbarComponent implements OnInit {
   nav_logo_class = "w-10 h-10 hidden md:block"
   navbar_list_class = "px-4 py-2 items-center caption"
   container_component = "px-4 md:px-12 lg:px-20 xl:px-24 2xl:px-32" 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
     this.show_xs_nav = false
@@ -25,5 +26,14 @@ export class NavbarComponent implements OnInit {
 
   show_navbar_menu(){
     this.show_xs_nav = this.show_xs_nav == false ? true : false
+  }
+  logOut(){
+    let token : any = localStorage.getItem('access_token')
+    token = JSON.parse(token)
+
+    if(token !== null){
+      localStorage.removeItem('access_token')
+    }
+    return this.router.navigate(['auth/masuk'])
   }
 }

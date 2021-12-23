@@ -1,4 +1,6 @@
+import { AuthService } from './../../_service/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-akun-saya',
@@ -6,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./akun-saya.component.css']
 })
 export class AkunSayaComponent implements OnInit {
-  form_akun = [
-    {id: 1, field_name : 'status verifikasi', type:"varchar"},
-    {id: 2, field_name : 'Username', type:"varchar"},
-    {id: 3, field_name : 'NIK', type:"varchar"},
-    {id: 4, field_name : 'Email', type:"email"},
+  user !: any
+  form_akun: any = [
+    {id : 1, 'nama_form' : 'nik', 'value' : 'roti'}
+  ]
+  form_testing : any = [
+    {id : 1, 'nama_form' : 'nik', 'value' : 'roti'}
   ]
 
     // Start CSS Classes
@@ -32,9 +35,28 @@ export class AkunSayaComponent implements OnInit {
     2xl:text-sm"
     card_class = "md:shadow-lg md:rounded-lg md:p-8"
     // End CSS Classes
-  constructor() { }
+  constructor( private router : Router, private authService : AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.form_akun = this.getData()
+    console.log(this.form_akun)
+  }
+
+  getData(){
+    let form : any = []
+    this.authService.detail_user().subscribe(d => {
+      let data = d['data']
+      let x = 1
+      let bag_of_word = ['email', 'nik', 'status']
+      for(let key in data){
+        if(bag_of_word.includes(key)){
+          let value = {"id" : x, "nama_form" : key, "value": data[key]}
+          form.push(value)
+          x++
+        }
+      }
+    })
+    return form
   }
 
 }

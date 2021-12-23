@@ -7,12 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AktivasiUserComponent implements OnInit {
   form_detail_akun = [
-    {id: 1, field_name : 'Alamat domisili', type:"textarea"},
-    {id: 2, field_name : 'Nama', type:"varchar"},
-    {id: 3, field_name : 'Nomor KK', type:"varchar"},
-    {id: 4, field_name : 'Alamat KTP', type:"textarea"},
-    {id: 5, field_name : 'tempat tanggal lahir', type:"varchar"}
+    {id: 1, nama_form : 'alamat_domisili'},
+    {id: 2, nama_form : 'alamat_ktp'},
+    {id: 3, nama_form : 'no_kk'},
+    {id: 4, nama_form : 'tanggal_lahir'},
+    {id: 5, nama_form : 'tempat_lahir'},
+    {id: 6, nama_form : 'foto_ktp'},
+    {id: 7, nama_form : 'foto_kk'}
   ]
+
+  // 'alamat_domisili' => 'required',
+  //               'alamat_ktp' => 'required',
+  //               'no_kk' => 'required',
+  //               'tanggal_lahir' =>'required|date',
+  //               'tempat_lahir' => 'required',
+  //               'foto_ktp' => 'required|mimes:jpg,png,bmp',
+  //               'foto_kk' => 'required|mimes:jpg,png,bmp'
   // Start CSS Classes
   common_section_margin_class = "mt-8 mb-8 \
                                     md:mt-12\
