@@ -32,6 +32,40 @@
                 <textarea matInput formControlName={{form.id}} *ngIf="!auth_form"></textarea>
             </mat-form-field>
 
+            <div *ngIf="form.nama_form == 'alamat' || form.nama_form == 'alamat_domisili' || form.nama_form == 'alamat_ktp' ">
+                <mat-label>{{form.nama_form}}</mat-label>
+                <mat-form-field  [ngClass]="grid ? form_grid_field : form_no_grid_field">
+                    <mat-select placeholder="pilih provinsi">
+                        <mat-option value="">Pilih provinsi</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field  [ngClass]="grid ? form_grid_field : form_no_grid_field">
+                    <mat-select placeholder="pilih kabupaten">
+                        <mat-option value="">Pilih kabupaten</mat-option>
+                    </mat-select>
+                </mat-form-field >
+
+                <mat-form-field  [ngClass]="grid ? form_grid_field : form_no_grid_field">
+                    <mat-select placeholder="pilih kecamatan">
+                        <mat-option value="">Pilih kecamatan</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field  [ngClass]="grid ? form_grid_field : form_no_grid_field"*ngIf="auth_form">
+                    <mat-select placeholder="pilih desa"  formControlName={{form.nama_form}} >
+                        <mat-option value="">Pilih desa</mat-option>
+                        <mat-option value="1">peninggi badan</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field  [ngClass]="grid ? form_grid_field : form_no_grid_field"  *ngIf="!auth_form">
+                    <mat-select placeholder="pilih desa" formControlName={{form.id}}>
+                        <mat-option value="">Pilih desa</mat-option>
+                        <mat-option value="1">peninggi badan</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
             <mat-form-field *ngIf="form.nama_form == 'agama' || form.nama_form == 'status_perkawinan'" [ngClass]="grid ? form_grid_field : form_no_grid_field">
                 <mat-label>{{form.nama_form}}</mat-label>
                 <mat-select formControlName={{form.nama_form}} *ngIf="auth_form">

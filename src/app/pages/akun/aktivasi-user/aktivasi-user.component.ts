@@ -1,3 +1,4 @@
+import { UtilService } from './../../../_service/util.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,6 +16,7 @@ export class AktivasiUserComponent implements OnInit {
     {id: 6, nama_form : 'foto_ktp'},
     {id: 7, nama_form : 'foto_kk'}
   ]
+
 
   // 'alamat_domisili' => 'required',
   //               'alamat_ktp' => 'required',

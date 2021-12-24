@@ -38,6 +38,7 @@ import { UniversalDialogComponent } from './components/universal-dialog/universa
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VerifikasiUserComponent } from './pages/akun/verifikasi-user/verifikasi-user.component';
+import { TextFieldHelper } from './_helper/text-field-helper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +85,9 @@ import { VerifikasiUserComponent } from './pages/akun/verifikasi-user/verifikasi
     HttpClientModule
   ],
   providers: [
-    HttpClientModule
+    HttpClientModule,
+    TextFieldHelper
+    
   ],
   entryComponents : [
     CardDialogComponent,

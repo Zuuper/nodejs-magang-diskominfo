@@ -1,3 +1,5 @@
+import { FormGroup } from '@angular/forms';
+import { TextFieldHelper } from './../../_helper/text-field-helper';
 import { AuthService } from './../../_service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -9,12 +11,9 @@ import { Router } from '@angular/router';
 })
 export class AkunSayaComponent implements OnInit {
   user !: any
-  form_akun: any = [
-    {id : 1, 'nama_form' : 'nik', 'value' : 'roti'}
-  ]
-  form_testing : any = [
-    {id : 1, 'nama_form' : 'nik', 'value' : 'roti'}
-  ]
+  form_akun = [];
+  form_data : any
+
 
     // Start CSS Classes
     common_section_margin_class = "mt-8 mb-8 \
@@ -35,13 +34,16 @@ export class AkunSayaComponent implements OnInit {
     2xl:text-sm"
     card_class = "md:shadow-lg md:rounded-lg md:p-8"
     // End CSS Classes
-  constructor( private router : Router, private authService : AuthService) { }
+  constructor( private router : Router, private authService : AuthService, private textUtil : TextFieldHelper) { }
 
   ngOnInit(){
     this.form_akun = this.getData()
-    console.log(this.form_akun)
+    console.log("form akun : ",this.form_akun)
+    this.form_data = this.creatingFormGroup()
   }
-
+  async creatingFormGroup(){
+    return this.textUtil.setNewFormField(this.form_akun,true,true)
+  }
   getData(){
     let form : any = []
     this.authService.detail_user().subscribe(d => {

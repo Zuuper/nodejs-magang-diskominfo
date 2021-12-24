@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { UtilService } from './../../_service/util.service';
+import { Component, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 
@@ -23,9 +24,13 @@ export class TextFieldComponent implements OnInit {
   @Input() readonly_form = false
   @Input() view_only = false
   @Output() form_result: EventEmitter<any> = new EventEmitter();;
-  form_data !: FormGroup;
+  @Input() form_data !: FormGroup;
+  provinsi = []
+  kabupaten = []
+  kecamatan = []
+  desa = []
   // form = {id: int, nama_form : string, value : [{id: int, name_value: string}] default(null)}
-  constructor() { }
+  constructor(private utils : UtilService) { }
 
   // Start Css Classes
   no_class = ""
@@ -34,28 +39,30 @@ export class TextFieldComponent implements OnInit {
   form_no_grid_field = 'form-field w-full pb-5'
   // End Css Classes
   ngOnInit(): void {
-    this.setNewFormField()
+    // this.setNewFormField()
   }
-
+  // ngOnChanges(changes: SimpleChanges){
+  //   this.setNewFormField()
+  //   console.log(changes)
+  // }
   // jgn pake nama form, pake id aja oke 
   setNewFormField() {
-    let new_form: any = {}
-    for (let x in this.form_field) {
-      if (this.auth_form || this.view_only) {
-        if (this.form_field[x]['nama_form'] == "email" || this.form_field[x]['nama_form'] == 'password' || this.form_field[x]['nama_form'] == "re-password") {
-          new_form[this.form_field[x]['nama_form']] = new FormControl('', Validators.required)
-        }
-        new_form[this.form_field[x]['nama_form']] = new FormControl('')
-      }else {
-        if (this.form_field[x]['nama_form'] == "email" || this.form_field[x]['nama_form'] == 'password' || this.form_field[x]['nama_form'] == "re-password") {
-          new_form[this.form_field[x]['id']] = new FormControl('', Validators.required)
-        }
-        new_form[this.form_field[x]['id']] = new FormControl('')
-      }
+    // let new_form: any = {}
+    // for (let x in this.form_field) {
+    //   if (this.auth_form || this.view_only) {
+    //     if (this.form_field[x]['nama_form'] == "email" || this.form_field[x]['nama_form'] == 'password' || this.form_field[x]['nama_form'] == "re-password") {
+    //       new_form[this.form_field[x]['nama_form']] = (this.view_only === true) ? new FormControl(this.form_field[x]['value']) : new FormControl('', Validators.required)
+    //     }
+    //     new_form[this.form_field[x]['nama_form']] = (this.view_only === true) ? new FormControl(this.form_field[x]['value']) :  new FormControl('')
+    //   }else {
+    //     if (this.form_field[x]['nama_form'] == "email" || this.form_field[x]['nama_form'] == 'password' || this.form_field[x]['nama_form'] == "re-password") {
+    //       new_form[this.form_field[x]['id']] = new FormControl('', Validators.required)
+    //     }
+    //     new_form[this.form_field[x]['id']] = new FormControl('')
+    //   }
       
-    }
-    this.form_data = new FormGroup(new_form)
-    console.log(this.form_data)
+    // }
+    // this.form_data = new FormGroup(new_form)
   }
   getErrorMessage() {
     // fungsi untuk nampilin error di form
