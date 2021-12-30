@@ -1,8 +1,9 @@
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TextFieldHelper } from './../../_helper/text-field-helper';
 import { AuthService } from './../../_service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { InputField } from 'src/app/_model/input-field.model';
 
 @Component({
   selector: 'app-akun-saya',
@@ -12,7 +13,8 @@ import { Router } from '@angular/router';
 export class AkunSayaComponent implements OnInit {
   user !: any
   form_akun = [];
-  form_data : any
+  form_field : InputField[] = []
+  form !: FormGroup
 
 
     // Start CSS Classes
@@ -37,22 +39,28 @@ export class AkunSayaComponent implements OnInit {
   constructor( private router : Router, private authService : AuthService, private textUtil : TextFieldHelper) { }
 
   ngOnInit(){
-    this.form_akun = this.getData()
+
+    this.form_field = this.getData()
+
     console.log("form akun : ",this.form_akun)
-    this.form_data = this.creatingFormGroup()
+    this.form = new FormGroup(this.setFormGroup())
   }
-  async creatingFormGroup(){
-    return this.textUtil.setNewFormField(this.form_akun,true,true)
+  setFormGroup(){
+    const f : any = {}
+    this.form_field.forEach((res : any) => {
+      f[res.nama_form] = new FormControl(res.value, Validators.required)
+    })
+    return f
   }
   getData(){
-    let form : any = []
+    let form : any[] = []
     this.authService.detail_user().subscribe(d => {
       let data = d['data']
       let x = 1
       let bag_of_word = ['email', 'nik', 'status']
       for(let key in data){
         if(bag_of_word.includes(key)){
-          let value = {"id" : x, "nama_form" : key, "value": data[key]}
+          let value = {"id" : x, "nama_form" : key, 'label' : key.toUpperCase, "value": data[key]}
           form.push(value)
           x++
         }

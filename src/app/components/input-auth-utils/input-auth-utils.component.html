@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of form_fields">
+        <mat-form-field>
+            <mat-label>{{field.label}}</mat-label>
+            <div *ngIf="['nik','nama','email','alasan','pekerjaan','no_','tempat_lahir','username'].includes(field.nama_form)">
+                <input type="field.type" matInput formControlName={{field.nama_form}} [readOnly]="this.readonly_form">
+            </div>
+            <div *ngIf="['tanggal'].includes(field.nama_form)">
+                <input matInput [matDatepicker]="picker" formControlName={{field.nama_form}} [readOnly]="this.readonly_form">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div *ngIf="['agama'].includes(field.nama_form)">
+                <mat-select formControlName={{field.nama_form}} [disabled]="this.readonly_form">
+                    <mat-option value="">Pilih satu</mat-option>
+                    <mat-option *ngFor="let value_field of field.dropdown_value" [value]=value_field.id>{{value_field.name_value}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <div *ngIf="['berkas','foto','file'].includes(field.nama_form)">
+                <label class=" bg-primary text-white p-4 rounded-lg"><span>upload {{field.nama_form}}</span>
+                    <br class="mt-2">
+                    <input type="file" class="hidden" formControlName={{field.nama_form}}>
+                </label>
+            </div>
+            <div *ngIf="['password'].includes(field.nama_form)" class="pb-5">
+                <input matInput [type]="hide_password ? 'password' : 'text'" formControlName={{field.nama_form}}>
+                <button mat-icon-button matSuffix (click)="hide_password = !hide_password"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide_password">
+                    <mat-icon>{{hide_password ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </div>
+        </mat-form-field>
+        <ng-content select="[id=password-field-link]" class="pt-0"></ng-content>
+
+    </div>
+    <ng-content select="[slot=cta_button]"></ng-content>
+</form>

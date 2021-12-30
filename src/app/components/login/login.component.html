@@ -2,7 +2,7 @@
     <h1>{{login}}.</h1>
     <p class="max-w-sm">{{penjelasan_login}}</p>
     <div class="mt-16 max-w-sm">
-        <app-text-field [form_field]="form_field" (form_result)="(getValue($event))" [auth_form]=true>
+        <app-input-auth-utils [form_fields]="form_field" [form]="form" (form_result)="(getValue($event))">
             <span id="password-field-link">
                 <a class="caption" [routerLink]="['/auth/lupa-password']" routerLinkActive="router-link-active" >{{ganti_password}}</a>
             </span>
@@ -12,7 +12,7 @@
                 </mat-checkbox>
                 <button mat-flat-button class="bg-primary text-white w-full text-lg" type="submit">{{login}}</button>
             </div>
-        </app-text-field>
+        </app-input-auth-utils>
         <div class="flex">
             <p class="caption">{{buat_akun}}</p>
             <a class="caption text-accent" [routerLink]="['/auth/registrasi']"> {{registrasi}}</a>

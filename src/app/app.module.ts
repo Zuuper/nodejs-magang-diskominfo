@@ -1,3 +1,4 @@
+import { InputAuthUtilsComponent } from './components/input-auth-utils/input-auth-utils.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +40,7 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VerifikasiUserComponent } from './pages/akun/verifikasi-user/verifikasi-user.component';
 import { TextFieldHelper } from './_helper/text-field-helper';
+import { InputUtilsComponent } from './components/input-utils/input-utils.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +76,8 @@ import { TextFieldHelper } from './_helper/text-field-helper';
     ForgotPasswordComponent,
     UniversalDialogComponent,
     VerifikasiUserComponent,
+    InputUtilsComponent,
+    InputAuthUtilsComponent
   ],
   imports: [
     BrowserModule,

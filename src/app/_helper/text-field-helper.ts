@@ -21,4 +21,8 @@ export class TextFieldHelper {
         console.log(new FormGroup(new_form))
         return new FormGroup(new_form)
     }
+    setNormalFormField(form : any[], form_builder : any = [], is_view_mode : boolean = false){
+
+    }
+    setAuthFormField(form : any[], form_builder : any[] = [], is_view_mode : boolean = false){}
 }
