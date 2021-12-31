@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   constructor(private router : Router, private authService : AuthService) { }
 
   ngOnInit(): void {
+    console.log(typeof this.form_field)
     this.form = new FormGroup(this.setFormGroup())
   }
   setFormGroup(){

@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
+import { InputField } from 'src/app/_model/input-field.model';
+import { LayananService } from 'src/app/_service/layanan.service';
 @Component({
   selector: 'app-buat-layanan',
   templateUrl: './buat-layanan.component.html',
@@ -8,15 +11,10 @@ import { Router } from '@angular/router';
 })
 export class BuatLayananComponent implements OnInit {
 
-  @Input() nama_layanan = "surat Pernyataan mampu"
-  @Input() form_field = [
-    {id:1, field_name:"Nomor NIK", type:"varchar"},
-    {id:2, field_name:"Nomor KK", type:"varchar"},
-    {id:3, field_name:"Jenis Kelamin", type:"dropdown", value : [{id : 1, name : 'laki- laki'},
-                                                                 {id : 2, name : 'Perempuan'}]},
-    {id:4, field_name : 'foto KK', type: "upload_file"}
-  ]
-
+  nama_layanan = "surat Pernyataan mampu"
+  form_field : InputField[] = []
+  form !: FormGroup
+  id_layanan : string = ""
     // Start Css Classes
   common_section_margin_class = "mt-8 mb-8 \
                                   md:mt-20 md:mb-12\
@@ -31,9 +29,14 @@ export class BuatLayananComponent implements OnInit {
                         lg:text-4xl\
                         xl:text-5xl"
 // End Css Classes
-  constructor(private router : Router) { }
+  constructor(private router : Router, private layananService : LayananService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id_layanan = this.activeRoute.snapshot.url[1].path
+    this.layananService.get_form_layanan(this.id_layanan).subscribe((d : any) =>{
+      this.form =  d.form
+      this.form_field = d.form_field
+    })
   }
   getValue(value : any){
     for(let x in value){

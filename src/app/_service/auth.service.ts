@@ -1,15 +1,14 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import {catchError, map } from 'rxjs/operators'
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiAuthURL = "http://localhost:8000/api/auth"
-  private apiURL = "http://localhost:8000/api"
+  private apiAuthURL = "http://192.168.1.128:8000/api/auth"
+  private apiURL = "http://192.168.1.128:8000/api"
   
   constructor(private httpClient: HttpClient) {
 
@@ -35,7 +34,24 @@ export class AuthService {
   }
   detail_user() : Observable<any>{
     let option : any = this.setup_header()
-    return this.httpClient.get(this.apiURL + "/user/detail-user", {headers : option})
+    return this.httpClient.get(this.apiURL + "/user/detail-user", {headers : option}).pipe(map((res : any) =>{
+      const data = res.data
+      let f : any = {}
+      res.form_field = []
+      let x = 1
+      let bag_of_word = ['email', 'nik', 'status']
+      for(let key in data){
+        if(bag_of_word.includes(key)){
+          let t = (['nik','status'].includes(key)) ? "text" : 'email'
+          let val = {"id" : x, "nama_form" : key, 'label' : key, "value": data[key], type : t}
+          res.form_field.push(val)
+          f[key] = new FormControl(data[key], Validators.required)
+          x++
+        }
+      }
+      res.form = new FormGroup(f)
+      return res
+    }))
   }
   detai_akun() : Observable<any>{
     return this.httpClient.get(this.apiURL + "/user/detail-akun")

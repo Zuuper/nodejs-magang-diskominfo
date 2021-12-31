@@ -1,7 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TextFieldHelper } from './../../_helper/text-field-helper';
 import { AuthService } from './../../_service/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { InputField } from 'src/app/_model/input-field.model';
 
@@ -10,9 +10,8 @@ import { InputField } from 'src/app/_model/input-field.model';
   templateUrl: './akun-saya.component.html',
   styleUrls: ['./akun-saya.component.css']
 })
-export class AkunSayaComponent implements OnInit {
+export class AkunSayaComponent implements OnInit, OnChanges {
   user !: any
-  form_akun = [];
   form_field : InputField[] = []
   form !: FormGroup
 
@@ -37,36 +36,27 @@ export class AkunSayaComponent implements OnInit {
     card_class = "md:shadow-lg md:rounded-lg md:p-8"
     // End CSS Classes
   constructor( private router : Router, private authService : AuthService, private textUtil : TextFieldHelper) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.getData()
+  }
 
-  ngOnInit(){
-
-    this.form_field = this.getData()
-
-    console.log("form akun : ",this.form_akun)
-    this.form = new FormGroup(this.setFormGroup())
+  async ngOnInit(){
+    this.getData()
   }
   setFormGroup(){
     const f : any = {}
+    console.log(this.form_field.length)
     this.form_field.forEach((res : any) => {
+      console.log(res)
       f[res.nama_form] = new FormControl(res.value, Validators.required)
     })
     return f
   }
   getData(){
-    let form : any[] = []
     this.authService.detail_user().subscribe(d => {
-      let data = d['data']
-      let x = 1
-      let bag_of_word = ['email', 'nik', 'status']
-      for(let key in data){
-        if(bag_of_word.includes(key)){
-          let value = {"id" : x, "nama_form" : key, 'label' : key.toUpperCase, "value": data[key]}
-          form.push(value)
-          x++
-        }
-      }
+      this.form = d.form
+      this.form_field = d.form_field
     })
-    return form
   }
 
 }

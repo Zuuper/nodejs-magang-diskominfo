@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
+import { Layanan } from 'src/app/_model/layanan.model';
+import { LayananService } from 'src/app/_service/layanan.service';
 
 @Component({
   selector: 'app-data-layanan',
@@ -8,7 +10,8 @@ import { Capacitor } from '@capacitor/core';
 })
 export class DataLayananComponent implements OnInit {
   // Start variables
-  data_found = true
+  data_layanan : Layanan[] = []
+  initial_data : Layanan[] = []
   form_field = [
     {id:"1",field_name : 'Cari Pengajuan Layanan Desa', type : 'varchar'},
     {id:"2",field_name : 'Kategori Layanan', type : 'dropdown', value : [{id:1, name: "bantuan"}, 
@@ -17,15 +20,6 @@ export class DataLayananComponent implements OnInit {
     {id:"3",field_name : 'Desa', type : 'dropdown', value : [{id:1, name: "Padang Bae"}, 
                                                               {id:2, name: "Kerobokan Kaja"},
                                                               {id:3, name: "Peti Tenget"}]},
-  ]
-  data_layanan = [
-    {id : 1, nama_layanan : "subsidi BBM pemerintah", kategori : "bantuan", warna : '#000'},
-    {id : 2, nama_layanan : "Surat Pernyataan Masih Hidup", kategori : "surat pernyataan", warna : '#000'},
-    {id : 3, nama_layanan : "Surat Pernyataan Menduda", kategori : "surat pernyataan", warna : '#000'},
-    {id : 4, nama_layanan : "Surat Keterangan Kaya raya", kategori : "surat keterangan", warna : '#000'},
-    {id : 5, nama_layanan : "subsidi BBM pemerintah", kategori : "bantuan", warna : '#000'},
-    {id : 6, nama_layanan : "Surat Keterangan Kartu Keluarga", kategori : "surat keterangan", warna : '#000'},
-    {id : 7, nama_layanan : "Surat Pengantar Kawin", kategori : "surat pengantar", warna : '#000'},
   ]
   device = false
   // End Variables
@@ -48,9 +42,13 @@ export class DataLayananComponent implements OnInit {
                             mb-8 flex justify-center"
   hidden_component = "hidden"
   // End Css Classes
-  constructor() { }
+  constructor(private layananService : LayananService) { }
 
   ngOnInit(): void {
+    this.layananService.get_layanan_data().subscribe((d : any) =>{
+      this.data_layanan =  d['data']
+      this.initial_data = d['data']
+      })
     this.device = Capacitor.isNativePlatform()
   }
 

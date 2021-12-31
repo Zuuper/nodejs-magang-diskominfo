@@ -1,28 +1,33 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit">
-    <div *ngForm="let field of form_fields">
-        <mat-form-field>
-            <mat-label>{{field.nama_form}}</mat-label>
-            <div *ngIf="['nik','nama','email','alasan','pekerjaan','no_','tempat_lahir'].includes(field.nama_form)">
-                <input type="field.type" matInput formControlName={{field.id}} [readOnly]="this.readonly_form">
-            </div>
-            <div *ngIf="['tanggal'].includes(field.nama_form)">
-                <input matInput [matDatepicker]="picker" formControlName={{field.id}} [readOnly]="this.readonly_form">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </div>
-            <div *ngIf="['agama'].includes(field.nama_form)">
-                <mat-select formControlName={{field.id}} [disabled]="this.readonly_form">
-                    <mat-option value="">Pilih satu</mat-option>
-                    <mat-option *ngFor="let value_field of field.dropdown_value" [value]=value_field.id>{{value_field.name_value}}
-                    </mat-option>
-                </mat-select>
-            </div>
-            <div *ngIf="['berkas','foto','file'].includes(field.nama_form)">
-                <label class=" bg-primary text-white p-4 rounded-lg"><span>upload {{field.nama_form}}</span>
-                    <br class="mt-2">
-                    <input type="file" class="hidden" formControlName={{field.id}}>
-                </label>
-            </div>
-        </mat-form-field>
-    </div>
-</form>
+<!-- msh error disini waktu jenis kelamin -->
+<div *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit">
+        <div *ngFor="let field of form_fields">
+            <p>{{field.nama_form}}</p>
+            <mat-form-field [formGroup]="form" class="form-field w-full pb-5">
+                <mat-label>{{field.nama_form}}</mat-label>
+                <div *ngIf="['nik','nama','email','alasan','pekerjaan','no_','tempat_lahir', 'status'].includes(field.nama_form.toLowerCase())">
+                    <input type="field.type" matInput formControlName={{field.id}} [readonly]="this.readonly_form">
+                </div>
+                <div *ngIf="['tanggal'].includes(field.nama_form)">
+                    <input matInput [matDatepicker]="picker" formControlName={{field.id}} [readonly]="this.readonly_form">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+                <div *ngIf="['agama'].includes(field.nama_form)">
+                    <mat-select formControlName={{field.id}} [disabled]="this.readonly_form">
+                        <mat-option value="">Pilih satu</mat-option>
+                        <mat-option *ngFor="let value_field of field.dropdown_value" [value]=value_field.id>{{value_field.name_value}}
+                        </mat-option>
+                    </mat-select>
+                </div>
+                <div *ngIf="['berkas','foto','file'].includes(field.nama_form)">
+                    <label class=" bg-primary text-white p-4 rounded-lg"><span>upload {{field.nama_form}}</span>
+                        <br class="mt-2">
+                        <input type="file" class="hidden" formControlName={{field.id}}>
+                    </label>
+                </div>
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+

@@ -2,7 +2,7 @@
     <h1 [ngClass]="common_title_text">Form Pengajuan {{nama_layanan}}</h1>
 </section>
 <section id="form-field-layanan">
-    <app-text-field [form_field]="form_field" (form_result)="(getValue($event))">
+    <app-input-utils [form_fields]="form_field" [form]="form" (form_result)="(getValue($event))">
         <section id="cta-layanan" class="grid grid-cols-1 md:flex md:justify-end" [ngClass]="common_section_margin_class" slot="cta_button">
             <button class="text-secondary order-2 md:order-1">
                 <p>Batal melakukan Pengajuan</p>
@@ -11,5 +11,5 @@
                 <p>Simpan Pengajuan</p>
             </button>
         </section>
-    </app-text-field>
+    </app-input-utils>
 </section>

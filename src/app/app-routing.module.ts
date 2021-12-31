@@ -38,7 +38,7 @@ const routes: Routes = [
       {path: 'draft-layanan', component: DraftLayananComponent, canActivate : [AuthGuard]},
       {path: 'data-layanan', component: DataLayananComponent},
       {path: 'detail-layanan/:id', component: DetailLayananComponent},
-      {path: 'buat-layanan', component: BuatLayananComponent, canActivate : [AuthGuard]},
+      {path: 'buat-layanan/:id', component: BuatLayananComponent, canActivate : [AuthGuard]},
       {path: 'pengajuan-layanan', component: PengajuanTerprosesComponent, canActivate : [AuthGuard]},
       {path: 'pengajuan-detail/:id', component: DetailPengajuanComponent, canActivate : [AuthGuard]},
       {path: 'draft-detail/:id', component: BuatLayananComponent, canActivate : [AuthGuard]}

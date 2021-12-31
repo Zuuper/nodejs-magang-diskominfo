@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { InputField } from 'src/app/_model/input-field.model';
 import { EventEmitter } from '@angular/core';
@@ -17,6 +17,16 @@ export class InputAuthUtilsComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if(changes.form_fields.firstChange === true){
+    }
+  }
+  createFormGroup(){
+    const f : any = {}
+    console.log(this.form_fields.length)
+    this.form_fields.forEach((res : any) => {
+      f[res.nama_form] = new FormControl(res.value, Validators.required)
+    })
+    return f
   }
   onSubmit(){
     console.log(this.form.value)

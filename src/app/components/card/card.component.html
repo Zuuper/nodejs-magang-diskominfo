@@ -5,16 +5,15 @@
     <ng-container *ngSwitchCase='"list_layanan"'>
         <section [ngClass]="grid_class">
             <div *ngFor="let list of data_" class="{{card_class}} bg-white">
-                <div class=" h-1/12 rounded-t-lg block" [ngStyle]="{'background-color' : list.warna}">
+                <div class=" h-1/12 rounded-t-lg block bg-primary" [ngStyle]="{'background-color' : list.warna}">
                     &nbsp;
                 </div>
                 <div class="px-5 pt-2 pb-4">
-                    <div class="pb-7 h-full">
-                        <p class="caption">{{list.kategori}}</p>
+                    <div class="pb-7 h-24">
                         <h1 [ngClass]="common_card_title_text">{{list.nama_layanan}}</h1>
                     </div>
                     <div class="grid grid-cols-1 md:flex md:flex-row align-bottom">
-                        <button class="bg-primary text-white p-2 mr-2 rounded-md hidden md:block" [routerLink]="['/menu/layanan/buat-layanan']">
+                        <button class="bg-primary text-white p-2 mr-2 rounded-md hidden md:block" [routerLink]="['/menu/layanan/buat-layanan/', list.id]">
                             <p [ngClass]="common_cta_text">Buat Pengajuan</p></button>
                         <button class="text-secondary px-0">
                             <p [ngClass]="common_cta_text" [routerLink]="['/menu/layanan/detail-layanan/', list.id]">baca selengkapnya</p>

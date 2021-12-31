@@ -1,7 +1,7 @@
 <div class="hidden md:block">
     <h3>Akun saya</h3>
     <div class="mt-12">
-        <app-input-auth-utils [form_fields]="form_field" [form]="form"></app-input-auth-utils>
+        <app-input-auth-utils [form_fields]="form_field" [form]="form" [readonly_form]="true"></app-input-auth-utils>
     </div>
     <div class="mt-12 grid grid-cols-1">
         <button class="bg-primary rounded-lg py-2 text-white mb-4 caption">
@@ -19,7 +19,7 @@
         <button class="text-primary text-center">kembali</button>
     </div>
     <div class="mt-12">
-        <app-text-field [form_field]="form_akun" [grid]="false" [auth_form]=true></app-text-field>
+        <app-input-auth-utils [form_fields]="form_field" [form]="form" [readonly_form]="true"></app-input-auth-utils>
     </div>
     <div class="mt-12 grid grid-cols-1">
         <button class="bg-primary rounded-lg py-2 text-white mb-4 caption">

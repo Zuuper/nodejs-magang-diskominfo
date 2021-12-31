@@ -6,16 +6,16 @@
     </div>
     <div class="mb-8">
         <h4 class="text-xl mb-1">daftar syarat</h4>
-        <ol *ngFor="let syarat of detail.daftar_syarat">
-            <li class="caption">{{syarat.nama_syarat}}</li>
+        <ol *ngFor="let syarat of daftar_syarat">
+            <li class="caption">{{syarat.name}}</li>
         </ol>
     </div>
     <div class="mb-4">
-        <p class="caption">{{detail.keterangan}}</p>
+        <p class="caption">{{detail.description}}</p>
     </div>
     <p class="caption text-secondar mb-12 ">lihat output layanan</p>
     <div class="grid grid-cols-1 gap-4 md:flex md:justify-end">
-        <button class="text-primary caption py-4 md:mr-4 order-2 md:order-1">kembali</button>
-        <button class="text-white bg-primary rounded-lg py-4 px-4 caption order-1 md:order-2">buat pengajuan</button>
+        <button class="text-primary caption py-4 md:mr-4 order-2 md:order-1" [routerLink]="['/menu/layanan']">kembali</button>
+        <button class="text-white bg-primary rounded-lg py-4 px-4 caption order-1 md:order-2" [routerLink]="['/menu/layanan/buat-layanan/', id_layanan]">buat pengajuan</button>
     </div>
 </div>
