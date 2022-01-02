@@ -1,32 +1,33 @@
 <!-- msh error disini waktu jenis kelamin -->
 <div *ngIf="form">
-    <form [formGroup]="form" (ngSubmit)="onSubmit">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div *ngFor="let field of form_fields">
-            <p>{{field.nama_form}}</p>
-            <mat-form-field [formGroup]="form" class="form-field w-full pb-5">
+            <mat-form-field [formGroup]="form" class="form-field w-full">
                 <mat-label>{{field.nama_form}}</mat-label>
-                <div *ngIf="['nik','nama','email','alasan','pekerjaan','no_','tempat_lahir', 'status'].includes(field.nama_form.toLowerCase())">
-                    <input type="field.type" matInput formControlName={{field.id}} [readonly]="this.readonly_form">
+                <div *ngIf="checkString(field.nama_form,text_field)">
+                    <input type="field.type" matInput formControlName={{field.id}} *ngIf="field.type != 'textarea'" [readonly]="this.readonly_form">
+                    <textarea type="field.type" matInput formControlName={{field.id}} *ngIf="field.type == 'textarea'" [readonly]="this.readonly_form"></textarea>
                 </div>
-                <div *ngIf="['tanggal'].includes(field.nama_form)">
+                <div *ngIf="checkString(field.nama_form,date_field)">
                     <input matInput [matDatepicker]="picker" formControlName={{field.id}} [readonly]="this.readonly_form">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </div>
-                <div *ngIf="['agama'].includes(field.nama_form)">
-                    <mat-select formControlName={{field.id}} [disabled]="this.readonly_form">
+                <div *ngIf="checkString(field.nama_form,select_field)">
+                    <mat-select formControlName={{field.id}}>
                         <mat-option value="">Pilih satu</mat-option>
-                        <mat-option *ngFor="let value_field of field.dropdown_value" [value]=value_field.id>{{value_field.name_value}}
-                        </mat-option>
+                        <mat-option *ngFor="let val of field.dropdown_value" [value]="val.id">{{val.name_value}}</mat-option>
                     </mat-select>
+                    <input>
                 </div>
-                <div *ngIf="['berkas','foto','file'].includes(field.nama_form)">
+                <div *ngIf="checkString(field.nama_form,file_field)">
                     <label class=" bg-primary text-white p-4 rounded-lg"><span>upload {{field.nama_form}}</span>
                         <br class="mt-2">
                         <input type="file" class="hidden" formControlName={{field.id}}>
                     </label>
                 </div>
             </mat-form-field>
+            
         </div>
     </form>
 </div>

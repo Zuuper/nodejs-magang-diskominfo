@@ -7,8 +7,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiAuthURL = "http://192.168.1.128:8000/api/auth"
-  private apiURL = "http://192.168.1.128:8000/api"
+  private apiAuthURL = "http://192.168.1.94:8000/api/auth"
+  private apiURL = "http://192.168.1.94:8000/api"
   
   constructor(private httpClient: HttpClient) {
 

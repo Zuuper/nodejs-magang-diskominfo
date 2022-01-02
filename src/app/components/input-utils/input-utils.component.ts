@@ -15,8 +15,16 @@ export class InputUtilsComponent implements OnChanges  {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes)
   }
-
+  text_field = ['nik','nama','email','alasan','pekerjaan','no','tempat', 'status','kewarganegaraan','tujuan' ,'alamat']
+  date_field = ['tanggal']
+  select_field = ['agama','kelamin']
+  file_field = ['berkas','foto','file']
   onSubmit(){
   }
-
+  checkString(string_val : string, substring : any[]){
+    return (substring.some(v => string_val.toLowerCase().includes(v)))
+  }
+  checkVal(str : any){
+    console.log(str)
+  }
 }

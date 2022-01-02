@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class LayananService {
 
-  private apiURL = "http://192.168.1.128:8000/api"
+  private apiURL = "http://192.168.1.94:8000/api"
   
   constructor(private httpClient: HttpClient) { }
 
@@ -48,25 +48,30 @@ export class LayananService {
       const data = res.data.details
       let f : any = {}
       res.form_field = []
-      const text_type = ['Nama']
       const number_type = ['No']
       const textarea_type = ['alamat','tujuan','alasan','maksud']
       const dropdown_type = ['kelamin','agama']
+      const file_type = ['file','berkas','foto']
       data.forEach((element : any)=> {
           let t : string = ""
-          switch(element){
-            case(number_type.includes(element.name)):
-              t = "number"
-              break
-            case(textarea_type.includes(element.name)):
-              t = "textarea"
-              break
-            case(dropdown_type.includes(element.name)):
-              break
-            default:
-              t = "text"
+          let dropdown_val :any[]= []
+          if(number_type.some(v => element.name.toLowerCase().includes(v))){
+            t = "number"
+          }else if(textarea_type.some(v => element.name.toLowerCase().includes(v))){
+            t = "textarea"
+          }else if(dropdown_type.some(v => element.name.toLowerCase().includes(v))){
+            t = 'select'
+            if(["jenis kelamin"].includes(element.name.toLowerCase())){
+              dropdown_val = [{id : 1, name_value : 'laki - laki'},{id : 2, name_value : 'perempuan'}]
+            }else{
+              dropdown_val = [{id : 1, name_value : 'hindu'},{id : 2, name_value : 'islam'},{id : 3, name_value : 'kristen protestan'},{id : 4, name_value : 'kritsten katolik'},{id : 5, name_value : 'buddha'},{id : 6, name_value : 'kong hu chu'}]
+            }
+          }else if(file_type.some(v => element.name.toLowerCase().includes(v))){
+            t = "file"
+          }else{
+            t = "text"
           }
-          let val = { "id": element.id, "nama_form" : element.name, 'label' : element.name,"type" : t}
+          let val = { "id": element.id, "nama_form" : element.name, 'label' : element.name,"type" : t, dropdown_value : dropdown_val}
           res.form_field.push(val)
           f[element.id] = new FormControl("")
       });
