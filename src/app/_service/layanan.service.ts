@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class LayananService {
 
-  private apiURL = "http://192.168.1.94:8000/api"
+  private apiURL = "http://192.168.1.128:8000/api"
   
   constructor(private httpClient: HttpClient) { }
 

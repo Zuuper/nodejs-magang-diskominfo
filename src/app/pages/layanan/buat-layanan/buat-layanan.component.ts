@@ -11,7 +11,7 @@ import { LayananService } from 'src/app/_service/layanan.service';
 })
 export class BuatLayananComponent implements OnInit {
 
-  nama_layanan = "surat Pernyataan mampu"
+  nama_layanan :string = ""
   form_field : InputField[] = []
   form !: FormGroup
   id_layanan : string = ""
@@ -36,6 +36,7 @@ export class BuatLayananComponent implements OnInit {
     this.layananService.get_form_layanan(this.id_layanan).subscribe((d : any) =>{
       this.form =  d.form
       this.form_field = d.form_field
+      this.nama_layanan = d['data']['nama_layanan']
     })
   }
   getValue(value : any){

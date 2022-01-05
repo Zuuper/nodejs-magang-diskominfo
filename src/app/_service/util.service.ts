@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UtilService {
-  private url = "http://localhost:8000/api/"
+  private url = "http://192.168.1.128:8000/api/"
   
   constructor(private httpClient : HttpClient) { }
 
