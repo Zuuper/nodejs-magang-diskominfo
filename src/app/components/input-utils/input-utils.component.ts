@@ -1,8 +1,10 @@
+import { LayananService } from 'src/app/_service/layanan.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { InputField } from './../../_model/input-field.model';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { UtilService } from 'src/app/_service/util.service';
 import { throwIfEmpty } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-input-utils',
@@ -19,7 +21,11 @@ export class InputUtilsComponent implements OnInit, OnChanges  {
   desa : Array<any> = []
   data_daerah !: Array<any>
   form_provinsi = new FormControl('',Validators.required)
-  constructor(private utilService : UtilService) { }
+  constructor(
+    private utilService : UtilService, 
+    private layananService : LayananService,
+    private activeRoute: ActivatedRoute,
+    private router : Router) { }
   ngOnInit(): void {
     this.utilService.getListDesa().subscribe((d: any)=>{
       this.provinsi = d.data.provinsi
@@ -35,6 +41,26 @@ export class InputUtilsComponent implements OnInit, OnChanges  {
   select_field = ['agama','kelamin']
   file_field = ['berkas','foto','file']
   onSubmit(){
+    const id_layanan = this.activeRoute.snapshot.url[1].path
+  
+    let formdata = new FormData;
+
+    const number_type = ['No']
+    const textarea_type = ['alamat','tujuan','alasan','maksud']
+    const dropdown_type = ['kelamin','agama']
+    const file_type = ['file','berkas','foto']
+    this.form_fields.forEach((element : any)=> {
+      console.log(element);
+      if(file_type.some(v => element.nama_form.toLowerCase().includes(v))){
+        formdata.append("file["+element.id+"]", this.form.get(`file${element.id}`)?.value);
+      }else{
+        formdata.append("value["+element.id+"]", this.form.get(`value${element.id}`)?.value);
+      }
+    });
+    this.layananService.post_layanan(formdata,id_layanan).subscribe((d: any)=>{
+      return this.router.navigate([''])
+    })
+
   }
   checkString(string_val : string, substring : any[]){
     return (substring.some(v => string_val.toLowerCase().includes(v)))
@@ -68,9 +94,15 @@ export class InputUtilsComponent implements OnInit, OnChanges  {
     })
     this.desa = desa.filter(k => k.district_id == e.value.toString())
   }
-  setAlamatValue(e:any){
+  onFileChanged(e: any, field_name:String){
     // this.form.setValue(e)
-    console.log(e)
-    console.log(this.form)
+
+    let fileupload: File | null = null;
+    fileupload = e.target.files.item(0);
+    
+    console.log(fileupload, field_name);
+    this.form.patchValue({
+      [`${field_name}`]: fileupload
+    });
   }
 }

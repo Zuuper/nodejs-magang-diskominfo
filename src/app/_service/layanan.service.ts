@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class LayananService {
 
-  private apiURL = "http://192.168.1.128:8000/api"
+  private apiURL = "http://192.168.1.248:8000/api"
   
   constructor(private httpClient: HttpClient) { }
 
@@ -41,9 +41,7 @@ export class LayananService {
     }
   }
   get_form_layanan(id : string){
-    // disini baru setengah
     const option = this.setup_header()
-    // return this.httpClient.get(this.apiURL + "/layanan/" + id + "/form", {headers : option})
     return this.httpClient.get(this.apiURL + "/layanan/" + id + "/form", {headers : option}).pipe(map((res : any)=>{
       const data = res.data.details
       let f : any = {}
@@ -55,6 +53,7 @@ export class LayananService {
       data.forEach((element : any)=> {
           let t : string = ""
           let dropdown_val :any[]= []
+          let set_id = `value${element.id}`
           if(number_type.some(v => element.name.toLowerCase().includes(v))){
             t = "number"
           }else if(textarea_type.some(v => element.name.toLowerCase().includes(v))){
@@ -68,15 +67,40 @@ export class LayananService {
             }
           }else if(file_type.some(v => element.name.toLowerCase().includes(v))){
             t = "file"
+            set_id = `file${element.id}`
           }else{
             t = "text"
           }
           let val = { "id": element.id, "nama_form" : element.name, 'label' : element.name,"type" : t, dropdown_value : dropdown_val}
           res.form_field.push(val)
-          f[element.id] = new FormControl("")
+          f[set_id] = new FormControl("")
       });
       res.form = new FormGroup(f)
       return res
     }))
   }
+  post_layanan(data:any,id:any){
+    const option = this.setup_header()
+    return this.httpClient.post(`${this.apiURL}/layanan/${id}/store`, data, {headers : option})
+  }
+  get_total_pengajuan_layanan(){
+    const option = this.setup_header()
+    return this.httpClient.get(`${this.apiURL}/pengajuan-total`, {headers : option})
+  }
+  get_all_pengajuan_layanan(){
+    const option = this.setup_header()
+    return this.httpClient.get(`${this.apiURL}/list/pengajuan`, {headers : option})
+  }
+  get_detail_pengajuan_layanan(id : any){
+    const option = this.setup_header()
+    return this.httpClient.get(`${this.apiURL}/pengajuan/${id}`, {headers : option})
+  }
+  get_all_draft_pengajuan_layanan(){
+    const option = this.setup_header()
+    return this.httpClient.get(`${this.apiURL}/list/draft`, {headers : option})
+  }
+  // get_detail_draft_pengajuan_layanan(){
+  //   const option = this.setup_header()
+  //   return this.httpClient.get(`${this.apiURL}/pengajuan`)
+  // }
 }

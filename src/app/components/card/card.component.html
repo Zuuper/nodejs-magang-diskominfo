@@ -50,13 +50,13 @@
         <!-- ini masih defaultnya angular material mat-expansion panel
              nanti dikembangin lagi biar sama dengan draft_layanan -->
         <section class="{{no_grid_class}} hidden md:block">
-            <div *ngFor="let pengajuan of data_" class="{{card_class}} hidden md:flex bg-white">
-                <div class=" w-card-side rounded-l-lg block" [ngStyle]="{'background-color' : pengajuan.warna}">
+            <div *ngFor="let pengajuan of data_" class="{{card_class}} hidden md:flex bg-white mb-8">
+                <div class=" w-card-side rounded-l-lg block bg-primary">
                     &nbsp;
                 </div>
                 <div class=" w-full flex flex-initial px-2 py-4 md:px-6 md:py-10  justify-between">
                     <div>
-                        <p class="max-w-xs">{{pengajuan.kategori}}</p>
+                        <p class="max-w-xs">{{pengajuan.nama_status}}</p>
                         <h1 class="max-w-sm" [ngClass]="common_title_text">{{pengajuan.nama_layanan}}</h1>
                     </div>
                     <div class="md:flex md:justify-between hidden">
@@ -68,13 +68,13 @@
             </div>
         </section>
         <section class="{{no_grid_class}} md:hidden">
-            <div *ngFor="let pengajuan of data_" class="{{card_class}} flex md:hidden bg-white" [routerLink]="['/menu/layanan/pengajuan-detail/', pengajuan.id]">
-                <div class=" w-card-side rounded-l-lg block" [ngStyle]="{'background-color' : pengajuan.warna}">
+            <div *ngFor="let pengajuan of data_" class="{{card_class}} flex md:hidden bg-white mb-4" [routerLink]="['/menu/layanan/pengajuan-detail/', pengajuan.id]">
+                <div class=" w-card-side rounded-l-lg block bg-primary" >
                     &nbsp;
                 </div>
                 <div class=" w-full flex flex-initial px-2 py-4 md:px-6 md:py-10  justify-between">
                     <div>
-                        <p class="max-w-xs">{{pengajuan.kategori}}</p>
+                        <p class="max-w-xs">{{pengajuan.nama_status}}</p>
                         <h1 class="max-w-sm" [ngClass]="common_title_text">{{pengajuan.nama_layanan}}</h1>
                     </div>
                 </div>
@@ -87,21 +87,21 @@
                 <img src="../../../assets/icon/ic_baseline_verified_user.svg" [ngClass]="rangkuman_icon_image">
                 <div [ngClass]="rangkuman_card_text">
                     <h1 [ngClass]="rangkuman_heading">Status Akun</h1>
-                    <p class="caption">belum verifikasi</p>
+                    <p class="caption">{{setDataRangkumanCard("status verifikasi")}}</p>
                 </div>
             </div>
             <div class=" bg-secondary {{card_class}} flex flex-wrap px-8 py-4">
                 <img src="../../../assets/icon/ic_round-drafts.svg" [ngClass]="rangkuman_icon_image">
                 <div [ngClass]="rangkuman_card_text">
                     <h1 [ngClass]="rangkuman_heading">Draft Pengajuann</h1>
-                    <p class="caption">tidak ada draft</p>
+                    <p class="caption">{{setDataRangkumanCard("draft")}}</p>
                 </div>
             </div>
             <div class="bg-accent {{card_class}} flex px-8 py-4">
                 <img src="../../../assets/icon/ic_round_insert_drive_file.svg" [ngClass]="rangkuman_icon_image">
                 <div [ngClass]="rangkuman_card_text">
                     <h1 [ngClass]="rangkuman_heading">Pengajuan Selesai</h1>
-                    <p class="caption">tidak ada pengajuan selesai</p>
+                    <p class="caption">{{setDataRangkumanCard("pengajuan")}}</p>
                 </div>
             </div>
         </section>

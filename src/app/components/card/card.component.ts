@@ -1,12 +1,13 @@
+import { LayananService } from 'src/app/_service/layanan.service';
 import { CardDialogComponent } from './card-dialog/card-dialog.component';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnChanges {
 
   /* 
     Variabel yang diperlukan untuk komponen card yaitu : 
@@ -21,7 +22,9 @@ export class CardComponent implements OnInit {
   @Input() card_pilihan = "list_layanan"
   @Input() data_ : any
   @Input() mobile = false
-
+  total_pengajuan : number = 0
+  total_draft : number = 0
+  status_verifikasi : number = 0
   /* 
     CSS Class Value
     -grid_class = digunakan untuk menampilkan card dalam grid
@@ -62,13 +65,37 @@ export class CardComponent implements OnInit {
   akunku_web_xl_text_class = "my-auto col-span-4"
   akunku_web_xl_list_class = "bg-white shadow-lg rounded-lg my-4"
     constructor(
-      public dialog : MatDialog
+      public dialog : MatDialog,
+      public layananService : LayananService
     ) {
   }
 
   ngOnInit(): void {
     
   }
+  ngOnChanges(changes: SimpleChanges): void {
+      if(this.card_pilihan == "rangkuman"){
+        this.layananService.get_total_pengajuan_layanan().subscribe((d: any)=>{
+          const data = d.data
+          this.total_draft = data.draft
+          this.total_pengajuan = data.selesai 
+          this.status_verifikasi = data['verifikasi user']['0'].status 
+        })
+      }
+  }
+
+  setDataRangkumanCard(type_data : string){
+    if(type_data == 'draft'){
+      return (this.total_draft == 0) ? "belum ada draft" : this.total_draft
+    }else if(type_data == "pengajuan"){
+      return (this.total_pengajuan == 0) ? "belum ada pengajuan selesai" : this.total_pengajuan
+    }else if(type_data == "status verifikasi"){
+      return (this.status_verifikasi == 0) ? "belum verifikasi" : "terverifikasi"
+    }else{
+      return "nyari apa sih ?"
+    }
+  }
+
   openPengajuanDialog(id_pengajuan: string ): void{
     const dialogRef = this.dialog.open(CardDialogComponent, {
       data: id_pengajuan,

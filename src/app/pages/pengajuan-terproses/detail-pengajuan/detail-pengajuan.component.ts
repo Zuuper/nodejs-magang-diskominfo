@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LayananService } from 'src/app/_service/layanan.service';
 
 @Component({
   selector: 'app-detail-pengajuan',
@@ -35,9 +36,9 @@ export class DetailPengajuanComponent implements OnInit {
                               xl:text-xl\
                               2xl:text-2xl"
   // End CSS Classes
-  constructor() { }
+  constructor(private layananService : LayananService ) { }
 
-  ngOnInit(): void {
+  ngOnInit():void{
   }
 
 }

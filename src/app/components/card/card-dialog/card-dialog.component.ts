@@ -1,3 +1,4 @@
+import { LayananService } from 'src/app/_service/layanan.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Capacitor } from '@capacitor/core';
@@ -23,9 +24,13 @@ export class CardDialogComponent implements OnInit {
   }
   constructor(
     public dialogRef: MatDialogRef<CardDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public layananService : LayananService) { }
 
   ngOnInit(): void {
+    this.layananService.get_detail_pengajuan_layanan(this.data).subscribe((d:any)=>{
+      console.log(d)
+    })
     this.device = Capacitor.isNativePlatform()
   }
 

@@ -1,3 +1,4 @@
+import { LayananService } from 'src/app/_service/layanan.service';
 import { Component, OnInit } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 
@@ -23,11 +24,7 @@ export class PengajuanTerprosesComponent implements OnInit {
       { id: 3, name: "ditolak" }]
     }
   ]
-  data_draft = [
-    { id: 1, nama_layanan: "subsidi BBM pemerintah", kategori: "bantuan", warna: '#000' },
-    { id: 2, nama_layanan: "Surat Pernyataan Masih Hidup", kategori: "surat pernyataan", warna: '#000' },
-    { id: 3, nama_layanan: "Surat Pernyataan Menduda", kategori: "surat pernyataan", warna: '#000' },
-  ]
+  data_ : any[] = []
   // End Variables
   // Start CSS Classes
   common_section_margin_class = "mt-8 mb-8 \
@@ -49,10 +46,14 @@ export class PengajuanTerprosesComponent implements OnInit {
   header_flex_class = "flex justify-between"
   hidden_component = "hidden"  
   // End CSS Classes
-  constructor() { }
+  constructor(private LayananService : LayananService) { }
 
   ngOnInit(): void {
     this.device = Capacitor.isNativePlatform()
+    this.LayananService.get_all_pengajuan_layanan().subscribe((d : any)=>{
+      this.data_ = d.data
+      
+    })
   }
 
 }
